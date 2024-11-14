@@ -3,11 +3,11 @@
   "WorkspaceRootPath": "D:\\TDA_intern\\Projects\\DatabaseApp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\permission.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|d:\\tda_intern\\projects\\databaseapp\\databaseapp\\permission.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\permission.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|d:\\tda_intern\\projects\\databaseapp\\databaseapp\\permission.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\permission.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\permission.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -35,8 +35,7 @@
               "ViewState": "AgIAAAkAAAAAAAAAAAAAACoAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-07T10:13:46.889Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -48,8 +47,7 @@
               "RelativeToolTip": "DatabaseApp\\Permission.xaml.cs",
               "ViewState": "AgIAAGAAAAAAAAAAAAAgwIEAAABJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-13T08:05:51.42Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-13T08:05:51.42Z"
             },
             {
               "$type": "Document",
