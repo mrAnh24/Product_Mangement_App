@@ -1,0 +1,147 @@
+﻿<Window x:Class="DatabaseApp.ExcelToSql"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseApp"
+        xmlns:userControls="clr-namespace:DatabaseApp.View.UserControls"
+        mc:Ignorable="d"  WindowStartupLocation="CenterScreen"
+        Title="ExcelToSql" Height="500" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <userControls:MenuBar/>
+        </Grid>
+
+        <Grid Grid.Row="1" Margin="10,0,10,10" Background="SteelBlue">
+            <TabControl>
+                <TabItem Header="Customers">
+                    <Grid Grid.Row="1" Background="SteelBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="30"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Label Content="Customer data management" Foreground="WhiteSmoke" FontSize="20" 
+                                   HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-10"/>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <DataGrid x:Name="dgCustomers" Margin="15,20,15,0"
+                                    AutoGenerateColumns="True" AlternatingRowBackground="LightGray" 
+                                    AlternationCount="2">
+                            </DataGrid>
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="105"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Margin="15,0,10,0">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock Text="File name:" Foreground="WhiteSmoke" FontSize="18" Margin="0,0,0,5"/>
+                                    <TextBlock Text="Sheet:" Foreground="WhiteSmoke" FontSize="18" Margin="0,0,0,5"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="10,0,15,0">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBox  Name="tbCustomersFile" Height="20" Margin="-8,0,-8,8" IsEnabled="False"/>
+                                    <ComboBox Name="cbCustomersSheet" Height="18" Margin="-8,0,0,0" IsTextSearchEnabled="False"
+                                            HorizontalAlignment="Left" SelectionChanged="cbCustomersSheet_SelectionChanged"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="2" Margin="10,0,15,0">
+                                <Button Name="btnCustomersUpload" Content="..." Height="20" Margin="-10,0,0,26" Click="btnCustomersUpload_Click"/>
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Grid.Row="3">
+                            <Button Name="btnCustomersExport" Content="Export" Height="30" 
+                                HorizontalAlignment="Center" Margin="0,0,10,10" Click="btnCustomersExport_Click"/>
+                            <Button Name="btnCustomersDelete" Content="Delete" Height="30" 
+                                HorizontalAlignment="Right" Margin="0,0,118,10" Click="btnCustomersDelete_Click"/>
+                            <Button Name="btnCustomersUpdate" Content="Update" Height="30" 
+                                HorizontalAlignment="Left" Margin="20,0,0,10" Click="btnCustomersUpdate_Click"/>
+                            <Button Name="btnCustomersImport" Content="Import" Height="30" 
+                                HorizontalAlignment="Left" Margin="108,0,0,10" Click="btnCustomersImport_Click"/>
+                            <Button Name="btnCustomersClear" Content="Refresh" Height="30" 
+                                HorizontalAlignment="Right" Margin="0,0,30,10" Click="btnCustomersClear_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Products">
+                    <Grid Grid.Row="1" Background="SteelBlue">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="90"/>
+                            <RowDefinition Height="50"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <DataGrid x:Name="dgProducts" Margin="15,20,15,0"
+                                AutoGenerateColumns="True" AlternatingRowBackground="LightGray" 
+                                AlternationCount="2">
+                            </DataGrid>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="105"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition Width="60"/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Margin="15,0,10,0">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBlock Text="File name:" Foreground="WhiteSmoke" FontSize="18" Margin="0,0,0,5"/>
+                                    <TextBlock Text="Sheet:" Foreground="WhiteSmoke" FontSize="18" Margin="0,0,0,5"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="10,0,15,0">
+                                <StackPanel VerticalAlignment="Center">
+                                    <TextBox  Name="tbProductsFile" Height="20" Margin="-8,0,-8,8" IsEnabled="False"/>
+                                    <ComboBox Name="cbProductsSheet" Height="18" Margin="-8,0,0,0" IsTextSearchEnabled="False"
+                                        HorizontalAlignment="Left" SelectionChanged="cbProductsSheet_SelectionChanged"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="2" Margin="10,0,15,0">
+                                <Button Name="btnProductsUpload" Content="..." Height="20" Margin="-10,0,0,26" Click="btnProductsUpload_Click"/>
+                            </Grid>
+
+                        </Grid>
+
+                        <Grid Grid.Row="2">
+                            <Button Name="btnProductsExport" Content="Export" Height="30" 
+                                HorizontalAlignment="Center" Margin="0,0,10,10" Click="btnProductsExport_Click"/>
+                            <Button Name="btnProductsDelete" Content="Delete" Height="30" 
+                                HorizontalAlignment="Right" Margin="0,0,118,10" Click="btnProductsDelete_Click"/>
+                            <Button Name="btnProductsUpdate" Content="Update" Height="30" 
+                                HorizontalAlignment="Left" Margin="20,0,0,10" Click="btnProductsUpdate_Click"/>
+                            <Button Name="btnProductsImport" Content="Import" Height="30" 
+                                HorizontalAlignment="Left" Margin="108,0,0,10" Click="btnProductsImport_Click"/>
+                            <Button Name="btnProductsClear" Content="Refresh" Height="30" 
+                                HorizontalAlignment="Right" Margin="0,0,30,10" Click="btnProductsClear_Click"/>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
+            </TabControl>
+        </Grid>
+    </Grid>
+</Window>

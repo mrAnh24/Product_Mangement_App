@@ -1,0 +1,118 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TDA_intern\\Projects\\DatabaseApp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|d:\\tda_intern\\projects\\databaseapp\\databaseapp\\productlistuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\productlistuser.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\productlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\productlist.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\productlistuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\productlistuser.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\view\\usercontrols\\menubar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\view\\usercontrols\\menubar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\permission.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\permission.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\databaseapp\\permission.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\permission.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "MenuBar.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "ViewState": "AgIAABkAAAAAAAAAAAAmwEQAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-07T10:13:46.889Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductList.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\ProductList.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\ProductList.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\ProductList.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\ProductList.xaml.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAswB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:39:23.69Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "ProductListUser.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\ProductListUser.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\ProductListUser.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\ProductListUser.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\ProductListUser.xaml.cs",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAACIAAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:35:22.404Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ProductListUser.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\ProductListUser.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\ProductListUser.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\ProductListUser.xaml",
+              "RelativeToolTip": "DatabaseApp\\ProductListUser.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-14T08:34:42.148Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Permission.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\Permission.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\Permission.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\Permission.xaml",
+              "RelativeToolTip": "DatabaseApp\\Permission.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-14T08:01:52.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Permission.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\Permission.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\Permission.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\DatabaseApp\\Permission.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\Permission.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACIAAAAoAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-14T08:01:50.24Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
