@@ -20,8 +20,11 @@
         </Grid>
 
         <Grid Grid.Row="1" Margin="10,0,10,0" Background="SteelBlue">
-            <TextBlock Name="txtTitle" Text="A big title" Foreground="WhiteSmoke"
+            <TextBlock Name="txtTitle" Text="Database products" Foreground="WhiteSmoke"
                        HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30"/>
+            <Button Name="btnRefresh" Content="🔄" HorizontalAlignment="Right" FontSize="30" Width="auto"
+                    Margin="0,0,15,0" Click="btnRefresh_Click" Cursor="Hand" Height="auto" 
+                    Background="Transparent" VerticalAlignment="Center"/>
         </Grid>
 
         <Grid Grid.Row="2" Margin="10,0,10,0" Background="SteelBlue">
@@ -75,7 +78,7 @@
                     </Grid.ColumnDefinitions>
 
                     <Grid Grid.Column="0">
-                        <Image Source="D://cable.png" HorizontalAlignment="Left" Margin="1,0,0,0"/>
+                        <Image Source="D://TDA_intern//Projects//DatabaseApp//Product_Mangement_App-master//Media//Product.png" HorizontalAlignment="Left" Margin="1,0,0,0"/>
                     </Grid>
 
                     <Grid Grid.Column="1">
@@ -127,8 +130,8 @@
                         <Label Content="Enter amount :" Foreground="WhiteSmoke" Margin="0,0,0,0"/>
                         <TextBox Name="tbNumber" Margin="90,-22,150,0" PreviewTextInput="tbNumber_PreviewTextInput"
                             Height="20" MaxLength="2" Text="0"/>
-                        <Button Name="btnRefresh" Content="Refresh" HorizontalAlignment="Right" 
-                            Margin="0,-22,15,0" Click="btnRefresh_Click" Cursor="Hand"/>
+                        <Button Name="btnDetail" Content="Detail" HorizontalAlignment="Right" Margin="0,-20,10,0"
+                                Click="btnDetail_Click" Cursor="Hand"/>
                     </StackPanel>
                 </Grid>
             </Grid>
@@ -147,10 +150,10 @@
             </Grid>
 
             <Grid Grid.Column="1">
-                <Button Name="btnAdd" Content="Add" HorizontalAlignment="Left" Margin="65,0,0,0"
+                <Button Name="btnAdd" Content="Add 📝" HorizontalAlignment="Left" Margin="65,0,0,0"
                         Click="btnAdd_Click" Cursor="Hand"/>
-                <Button Name="btnDetail" Content="Detail" HorizontalAlignment="Right" Margin="0,0,15,0"
-                        Click="btnDetail_Click" Cursor="Hand"/>
+                <Button Name="btnConfirm" Content="To List🧾" HorizontalAlignment="Right" Margin="0,0,10,0"
+                        Click="btnConfirm_Click"  Cursor="Hand" />
             </Grid>
         </Grid>
     </Grid>

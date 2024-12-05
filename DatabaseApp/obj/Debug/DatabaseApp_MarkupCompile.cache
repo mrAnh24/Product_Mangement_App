@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\App.xaml
-272062013873
+291603785025
 
-37-2062054682
-196764038712
-Account.xaml;AccountAdd.xaml;AccountManagement.xaml;AccountRequests.xaml;AccountUpdate.xaml;AccountUpdateAdmin.xaml;Checkout.xaml;Error.xaml;ExportData.xaml;Home.xaml;Login.xaml;MainWindow.xaml;PasswordChange.xaml;PasswordConfirmation.xaml;Permission.xaml;ProductDetail.xaml;ProductList.xaml;ProductListUser.xaml;Register.xaml;Styles\Button.xaml;Styles\ComboBox.xaml;Styles\TextBlock.xaml;Update.xaml;UpdateData.xaml;View\UserControls\ClearTextBox.xaml;View\UserControls\GuestFooter.xaml;View\UserControls\MenuBar.xaml;
+43-866976069
+196412028307
+Account.xaml;AccountAdd.xaml;AccountLinkedUpdate.xaml;AccountManagement.xaml;AccountRequests.xaml;AccountUpdate.xaml;AccountUpdateAdmin.xaml;Checkout.xaml;Error.xaml;ExportData.xaml;Home.xaml;Login.xaml;MainWindow.xaml;PasswordChange.xaml;PasswordConfirmation.xaml;Permission.xaml;ProductDetail.xaml;ProductList.xaml;ProductListUser.xaml;Register.xaml;Styles\Button.xaml;Styles\ComboBox.xaml;Styles\TextBlock.xaml;Update.xaml;UpdateData.xaml;View\UserControls\ClearTextBox.xaml;View\UserControls\GuestFooter.xaml;View\UserControls\MenuBar.xaml;View\UserControls\RefreshButton.xaml;
 
 False
 

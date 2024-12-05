@@ -371,8 +371,8 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="Z.Dapper.Plus, Version=7.5.4.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
-      <HintPath>..\packages\Z.Dapper.Plus.7.5.4\lib\net45\Z.Dapper.Plus.dll</HintPath>
+    <Reference Include="Z.Dapper.Plus, Version=7.5.5.0, Culture=neutral, PublicKeyToken=59b66d028979105b, processorArchitecture=MSIL">
+      <HintPath>..\packages\Z.Dapper.Plus.7.5.5\lib\net45\Z.Dapper.Plus.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -383,12 +383,17 @@
     <Compile Include="AccountAdd.xaml.cs">
       <DependentUpon>AccountAdd.xaml</DependentUpon>
     </Compile>
+    <Compile Include="AccountLinkedUpdate.xaml.cs">
+      <DependentUpon>AccountLinkedUpdate.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AccountRequests.xaml.cs">
       <DependentUpon>AccountRequests.xaml</DependentUpon>
     </Compile>
     <Compile Include="Checkout.xaml.cs">
       <DependentUpon>Checkout.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\ActivityDb.cs" />
+    <Compile Include="Data\DataList.cs" />
     <Compile Include="Data\DataModels\Account.cs" />
     <Compile Include="Account.xaml.cs">
       <DependentUpon>Account.xaml</DependentUpon>
@@ -402,9 +407,11 @@
     <Compile Include="AccountUpdateAdmin.xaml.cs">
       <DependentUpon>AccountUpdateAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Data\DataModels\Activity.cs" />
     <Compile Include="Data\DataModels\AdvanceCustomers.cs" />
     <Compile Include="Data\DataModels\Customer.cs" />
     <Compile Include="Data\AccountDb.cs" />
+    <Compile Include="Data\DataModels\CustomerInvoice.cs" />
     <Compile Include="Data\DataModels\CustomerList.cs" />
     <Compile Include="Data\ProductDb.cs" />
     <Compile Include="dbdemoDataSet.Designer.cs">
@@ -462,11 +469,18 @@
     <Compile Include="View\UserControls\MenuBar.xaml.cs">
       <DependentUpon>MenuBar.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\UserControls\RefreshButton.xaml.cs">
+      <DependentUpon>RefreshButton.xaml</DependentUpon>
+    </Compile>
     <Page Include="Account.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AccountAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AccountLinkedUpdate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -575,6 +589,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\UserControls\MenuBar.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\UserControls\RefreshButton.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

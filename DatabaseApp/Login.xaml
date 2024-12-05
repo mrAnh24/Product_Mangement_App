@@ -22,7 +22,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="0">
-            <Label Name="txtClose" Content="X" HorizontalAlignment="Right" FontSize="24"
+            <Label Name="txtClose" Content="X" HorizontalAlignment="Right" FontSize="24" Cursor="Hand"
                        VerticalAlignment="Center" Margin="0,0,10,0" MouseDoubleClick="txtClose_MouseDoubleClick"/>
         </Grid>
 

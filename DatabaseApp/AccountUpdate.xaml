@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Grid.Row="1">
-            <Label Content="Update Information" HorizontalAlignment="Center"
+            <Label Name="lbUpdate" HorizontalAlignment="Center"
                    VerticalAlignment="Center" FontSize="30" Foreground="WhiteSmoke"/>
         </Grid>
 

@@ -52,11 +52,11 @@ namespace DatabaseApp
             
             if (tbEmail.Text == "" || tbUsername.Text == "" || pbPassword.Password == "" || pbCPassword.Password == "")
             {
-                System.Windows.MessageBox.Show("all fields need to be filled", "Registration Failed", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
+                System.Windows.MessageBox.Show("all fields need to be filled", "Error", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
             }
             else if (tbUsername.Text == "admin")
             {
-                System.Windows.MessageBox.Show("admin can not be use as Username", "Registration Failed", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
+                System.Windows.MessageBox.Show("admin can not be use as Username", "Error", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
             }
             else if(pbPassword.Password == pbCPassword.Password)
             {
@@ -70,6 +70,12 @@ namespace DatabaseApp
                 tbUsername.Text = "";
                 pbPassword.Password = "";
                 pbCPassword.Password = "";*/
+
+                con.Open();
+                query = "INSERT INTO AccountLinked VALUES ('" + tbUsername.Text + "', '" + null + "', '" + null + "', '" + null + "', '" + null + "')";
+                cmd = new SqlCommand(query, con);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
                 System.Windows.MessageBox.Show("Your account has been successfully created", "Registration Success", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Information);
                 new Login().Show();
@@ -95,16 +101,19 @@ namespace DatabaseApp
         {
             if (passwordCb.IsChecked == true)
             {
-                if (pbPassword.Password == "")
+                if (pbPassword.Password == "" || pbCPassword.Password == "")
                 {
-                    System.Windows.MessageBox.Show("Only check this box if you already write down your password!!!");
+                    System.Windows.MessageBox.Show("Write down your password first");
                     passwordCb.IsChecked = false;
                 }
-                tbPassword.Text = pbPassword.Password;
-                pbPassword.Visibility = Visibility.Hidden;
+                else
+                {
+                    tbPassword.Text = pbPassword.Password;
+                    pbPassword.Visibility = Visibility.Hidden;
 
-                tbCPassword.Text = pbCPassword.Password;
-                pbCPassword.Visibility = Visibility.Hidden;
+                    tbCPassword.Text = pbCPassword.Password;
+                    pbCPassword.Visibility = Visibility.Hidden;
+                }
             }
             else
             {

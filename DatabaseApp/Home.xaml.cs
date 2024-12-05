@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DocumentFormat.OpenXml.Bibliography;
+using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -7,10 +10,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace DatabaseApp
 {
@@ -19,16 +24,109 @@ namespace DatabaseApp
     /// </summary>
     public partial class Home : Window
     {
+        public static double price1; // = 75.84;
+        public static double price2; // = 26.87;
+        public static double price3; // = 70.78;
         public Home()
         {
             InitializeComponent();
             string accountName = Login.passText;
+            
+            txtTitle1.Text = "Tea";
+            txtTitle2.Text = "Kiwi";
+            txtTitle3.Text = "Wine";
+
+            LoadProduct(txtTitle1.Text);
+            txtPrice1.Text = ProductList.homePrice + " $";
+            LoadProduct(txtTitle2.Text);
+            txtPrice2.Text = ProductList.homePrice + " $";
+            LoadProduct(txtTitle3.Text);
+            txtPrice3.Text = ProductList.homePrice + " $";
+
+            if(Login.passText != "Guest account")
+            {
+                
+            }
+        }
+        DataTableCollection tableCollection;
+        SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
+
+        public void LoadProduct(string Title)
+        {
+            SqlCommand cmd = new SqlCommand("Select * from Products where Product = @Product", con);
+            cmd.Parameters.AddWithValue("@Product", Title);
+            DataTable dt = new DataTable();
+            con.Open();
+            SqlDataReader da = cmd.ExecuteReader();
+            while (da.Read())
+            {
+                ProductList.homeName = da.GetValue(0).ToString();
+                ProductList.homeCode = da.GetValue(1).ToString();
+                ProductList.homeDescription = da.GetValue(2).ToString();
+                ProductList.homePrice = da.GetValue(3).ToString();
+            }
+            con.Close();
         }
 
         private void Image_MouseDown(object sender, MouseButtonEventArgs e)
         {
             new ProductList().Show();
             this.Close();
+        }
+
+        private void btnRefresh_Click(object sender, RoutedEventArgs e)
+        {
+            new Home().Show();
+            this.Close();
+        }
+
+        private void btnList_Click(object sender, RoutedEventArgs e)
+        {
+            if (Login.passText == "Guest account")
+            {
+                System.Windows.MessageBox.Show("Needed an account", "error");
+                var result = System.Windows.MessageBox.Show("Create an account?", "suggestion", MessageBoxButton.YesNo, (MessageBoxImage)MessageBoxIcon.Information);
+                if (result == MessageBoxResult.Yes)
+                {
+                    new Register().Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                new ProductListUser().Show();
+                this.Close();
+            }
+        }
+
+        public void ButtonPress()
+        {
+            new ProductList().Show();
+            this.Close();
+        }
+
+        private void btnAccount_Click(object sender, RoutedEventArgs e)
+        {
+            new Account().Show();
+            this.Close();
+        }
+
+        private void btnAdd1_Click(object sender, RoutedEventArgs e)
+        {
+            LoadProduct(txtTitle1.Text);
+            ButtonPress();
+        }
+
+        private void btnAdd2_Click(object sender, RoutedEventArgs e)
+        {
+            LoadProduct(txtTitle2.Text);
+            ButtonPress();
+        }
+
+        private void btnAdd3_Click(object sender, RoutedEventArgs e)
+        {
+            LoadProduct(txtTitle3.Text);
+            ButtonPress();
         }
     }
 }

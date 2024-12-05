@@ -25,19 +25,21 @@ namespace DatabaseApp
         {
             Owner = parentWindow;
             InitializeComponent();
-            con.Open();          
-                tbUsername.Text = Login.passText;
-                SqlCommand cmd = new SqlCommand("Select * from Account where Username = @username", con);
-                cmd.Parameters.AddWithValue("@username", tbUsername.Text);
-                SqlDataReader da = cmd.ExecuteReader();
-                while (da.Read())
-                {
-                    tbEmail.Text = da.GetValue(0).ToString();
-                    tbUsername.Text = da.GetValue(1).ToString();
-                    tbRole.Text = da.GetValue(3).ToString();
-                    tbPhoneNumber.Text = da.GetInt32(4).ToString();
-                    tbGender.Text = da.GetValue(5).ToString();
-                }
+            lbUpdate.Content = $"Update {Login.passText} information";
+
+            con.Open();
+            tbUsername.Text = Login.passText;
+            SqlCommand cmd = new SqlCommand("Select * from Account where Username = @username", con);
+            cmd.Parameters.AddWithValue("@username", tbUsername.Text);
+            SqlDataReader da = cmd.ExecuteReader();
+            while (da.Read())
+            {
+                tbEmail.Text = da.GetValue(0).ToString();
+                tbUsername.Text = da.GetValue(1).ToString();
+                tbRole.Text = da.GetValue(3).ToString();
+                tbPhoneNumber.Text = da.GetInt32(4).ToString();
+                tbGender.Text = da.GetValue(5).ToString();
+            }
             if (tbUsername.Text == "admin")
             {
                 tbEmail.IsEnabled = false;

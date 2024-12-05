@@ -32,6 +32,8 @@ namespace DatabaseApp.View.UserControls
             InitializeComponent();
 
             Login.passText = "admin";//temporary
+            //Login.passText = "Guest account";//temporary
+            //Login.passText = "wGuys";//temporary
 
             string accountName = Login.passText;
             txtAccname.Text = accountName;
@@ -86,7 +88,7 @@ namespace DatabaseApp.View.UserControls
         private void miHome_Click(object sender, RoutedEventArgs e)
         {
             new Home().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             count++;
         }
 
@@ -94,7 +96,7 @@ namespace DatabaseApp.View.UserControls
         private void miProduct_Click(object sender, RoutedEventArgs e)
         {
             new ProductList().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             count++;
         }
 
@@ -102,8 +104,9 @@ namespace DatabaseApp.View.UserControls
         private void LogOut_Click(object sender, RoutedEventArgs e)
         {
             //Application.Current.MainWindow.Hide();
+            role = null;
             new Login().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             //MessageBox.Show("Number of times" + count);
             count++;
         }
@@ -115,7 +118,7 @@ namespace DatabaseApp.View.UserControls
         {
             //Application.Current.MainWindow.Hide();
             new Account().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             //MessageBox.Show("Number of times" + count);
             count++;
         }
@@ -124,7 +127,7 @@ namespace DatabaseApp.View.UserControls
         private void miProductList_Click(object sender, RoutedEventArgs e)
         {
             new ProductListUser().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             count++;
         }
 
@@ -132,18 +135,18 @@ namespace DatabaseApp.View.UserControls
         private void miPermisson_Click(object sender, RoutedEventArgs e)
         {
             new Permission().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             count++;
         }
 
         //--Edit Tab--//
 
-        //Open CSV file 
+        //Open CSV file (MainWindow)
         private void miCSV_Click(object sender, RoutedEventArgs e)
         {
             //Application.Current.MainWindow.Hide();
             new MainWindow().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             //MessageBox.Show("Number of times" + count);
             count++;
         }
@@ -153,17 +156,17 @@ namespace DatabaseApp.View.UserControls
         {
             //Application.Current.MainWindow.Hide();
             new Update().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             //MessageBox.Show("Number of times" + count);
             count++;
         }
 
-        //Update customers data 
+        //Update data 
         private void miUpdateData_Click(object sender, RoutedEventArgs e)
         {
             //Application.Current.MainWindow.Hide();
             new UpdateData().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             //MessageBox.Show("Number of times" + count);
             count++;
         }
@@ -180,7 +183,7 @@ namespace DatabaseApp.View.UserControls
         private void miRequest_Click(object sender, RoutedEventArgs e)
         {
             new AccountRequests().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             count++;
         }
 
@@ -188,7 +191,7 @@ namespace DatabaseApp.View.UserControls
         private void miDatabase_Click(object sender, RoutedEventArgs e)
         {
             new AccountManagement().Show();
-            Application.Current.Windows[count].Close();
+            Application.Current.Windows[0].Close();
             count++;
         }
 

@@ -41,6 +41,7 @@ namespace DatabaseApp
             {
                 cbSpecial.Visibility = Visibility.Visible;
                 cbAdvanceCustomers.Visibility = Visibility.Visible;
+                cbInvoice.Visibility = Visibility.Visible;
             }
             if (View.UserControls.MenuBar.role == "Lv3")
             {
@@ -109,11 +110,16 @@ namespace DatabaseApp
                     cbType.Text = type = "AdvanceCustomers";
                     btnUpload.IsEnabled = true;
                     break;
+                case "5":
+                    cbType.Text = type = "CustomerInvoice";
+                    btnUpload.IsEnabled = true;
+                    break;
             }
             lblTitle.Content = $"{cbType.Text} management";
             tbFile.Clear();
         }
 
+        //choose a sheet
         private void cbSheet_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             System.Data.DataTable dt = tableCollection[cbSheet.SelectedItem.ToString()];
@@ -183,24 +189,54 @@ namespace DatabaseApp
                         for (int i = 0; i < dt.Rows.Count; i++)
                         {
                             AdvanceCustomers info = new AdvanceCustomers();
-                            info.AName = dt.Rows[i]["Name"].ToString();
-                            info.ATitle = dt.Rows[i]["Title"].ToString();
-                            info.ACompany = dt.Rows[i]["Name"].ToString();
-                            info.AAddress = dt.Rows[i]["Address"].ToString();
-                            info.ACity = dt.Rows[i]["City"].ToString();
-                            info.ACountry = dt.Rows[i]["Country"].ToString();
-                            info.APhone = dt.Rows[i]["Phone"].ToString();
-                            info.AFax = dt.Rows[i]["Fax"].ToString();
-                            info.ARegion = dt.Rows[i]["Region"].ToString();
-                            info.APostalCode = dt.Rows[i]["PostalCode"].ToString();
+                            info.Name = dt.Rows[i]["Name"].ToString();
+                            info.Title = dt.Rows[i]["Title"].ToString();
+                            info.Company = dt.Rows[i]["Name"].ToString();
+                            info.Address = dt.Rows[i]["Address"].ToString();
+                            info.City = dt.Rows[i]["City"].ToString();
+                            info.Country = dt.Rows[i]["Country"].ToString();
+                            info.Phone = dt.Rows[i]["Phone"].ToString();
+                            info.Fax = dt.Rows[i]["Fax"].ToString();
+                            info.Region = dt.Rows[i]["Region"].ToString();
+                            info.PostalCode = dt.Rows[i]["PostalCode"].ToString();
+                            //info.ACreated = DateTime.Parse(dt.Rows[i]["Created"]);
+                            info.Created = Convert.ToDateTime(dt.Rows[i]["Created"]);
                             aCustomers.Add(info);
                         }
                         dgData.ItemsSource = aCustomers;
                     }
                     break;
+                case "5":
+                    List<CustomerInvoice> invoice = new List<CustomerInvoice>();
+                    if (dt != null)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            CustomerInvoice info = new CustomerInvoice();
+                            info.Name = dt.Rows[i]["Name"].ToString();
+                            info.Gender = dt.Rows[i]["Gender"].ToString();
+                            info.Title = dt.Rows[i]["Title"].ToString();
+                            info.Company = dt.Rows[i]["Name"].ToString();
+                            info.Address = dt.Rows[i]["Address"].ToString();
+                            info.City = dt.Rows[i]["City"].ToString();
+                            info.Region = dt.Rows[i]["Region"].ToString();
+                            info.PostalCode = dt.Rows[i]["PostalCode"].ToString();
+                            info.Country = dt.Rows[i]["Country"].ToString();
+                            info.Phone = dt.Rows[i]["Phone"].ToString();
+                            info.Fax = dt.Rows[i]["Fax"].ToString();
+                            info.PaymentMethod = dt.Rows[i]["PaymentMethod"].ToString();
+                            info.Bill = dt.Rows[i]["Bill"].ToString();
+                            info.CreatedDate = Convert.ToDateTime(dt.Rows[i]["CreatedDate"]);
+                            info.Status = dt.Rows[i]["Status"].ToString();
+                            invoice.Add(info);
+                        }
+                        dgData.ItemsSource = invoice;
+                    }
+                    break;
             }
         }     
 
+        //Update button
         private void btnUpdate_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -240,6 +276,28 @@ namespace DatabaseApp
                             }
                         }
                         break;
+                    case "4":
+                        DapperPlusManager.Entity<AdvanceCustomers>().Table("AdvanceCustomers");
+                        List<AdvanceCustomers> advanceCustomers = dgData.ItemsSource as List<AdvanceCustomers>;
+                        if (advanceCustomers != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                db.BulkMerge(advanceCustomers);
+                            }
+                        }
+                        break;
+                    case "5":
+                        DapperPlusManager.Entity<CustomerInvoice>().Table("CustomerInvoice");
+                        List<CustomerInvoice> invoice = dgData.ItemsSource as List<CustomerInvoice>;
+                        if (invoice != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                db.BulkMerge(invoice);
+                            }
+                        }
+                        break;
                 }
                 System.Windows.MessageBox.Show("Data updated to the server successfully!");
             }
@@ -249,6 +307,7 @@ namespace DatabaseApp
             }
         }
 
+        //Delete button
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -266,7 +325,6 @@ namespace DatabaseApp
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(customers);
-                                    System.Windows.MessageBox.Show("Data wiped from the server successfully!");
                                 }
                             }
                         }
@@ -282,7 +340,6 @@ namespace DatabaseApp
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(products);
-                                    System.Windows.MessageBox.Show("Data wiped from the server successfully!");
                                 }
                             }
                         }
@@ -298,12 +355,42 @@ namespace DatabaseApp
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(accounts);
-                                    System.Windows.MessageBox.Show("Data wiped from the server successfully!");
+                                }
+                            }
+                        }
+                        break;
+                    case "4":
+                        DapperPlusManager.Entity<AdvanceCustomers>().Table("Account");
+                        List<AdvanceCustomers> advanceCustomers = dgData.ItemsSource as List<AdvanceCustomers>;
+                        if (advanceCustomers != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                var result = System.Windows.MessageBox.Show("All customers info will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                if (result == MessageBoxResult.Yes)
+                                {
+                                    db.BulkDelete(advanceCustomers);
+                                }
+                            }
+                        }
+                        break;
+                    case "5":
+                        DapperPlusManager.Entity<CustomerInvoice>().Table("CustomerInvoice");
+                        List<CustomerInvoice> invoice = dgData.ItemsSource as List<CustomerInvoice>;
+                        if (invoice != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                var result = System.Windows.MessageBox.Show("All invoices info will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                if (result == MessageBoxResult.Yes)
+                                {
+                                    db.BulkDelete(invoice);
                                 }
                             }
                         }
                         break;
                 }
+                System.Windows.MessageBox.Show("Data wiped from the server successfully!");
             }
             catch (Exception ex)
             {
@@ -311,12 +398,13 @@ namespace DatabaseApp
             }
         }
 
-        //reload window
+        //Reload window
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             Reset();
         }
 
+        //Import button
         private void btnImport_Click(object sender, RoutedEventArgs e)
         {
             try
@@ -335,7 +423,6 @@ namespace DatabaseApp
                                 {
                                     db.BulkDelete(customers);
                                     db.BulkInsert(customers);
-                                    System.Windows.MessageBox.Show("Data imported to the server successfully!");
                                 }
                             }
                         }
@@ -352,7 +439,6 @@ namespace DatabaseApp
                                 {
                                     db.BulkDelete(products);
                                     db.BulkInsert(products);
-                                    System.Windows.MessageBox.Show("Data imported to the server successfully!");
                                 }
                             }
                         }
@@ -369,12 +455,44 @@ namespace DatabaseApp
                                 {
                                     db.BulkDelete(accounts);
                                     db.BulkInsert(accounts);
-                                    System.Windows.MessageBox.Show("Data imported to the server successfully!");
+                                }
+                            }
+                        }
+                        break;
+                    case "4":
+                        DapperPlusManager.Entity<AdvanceCustomers>().Table("AdvanceCustomers");
+                        List<AdvanceCustomers> AdvanceCustomers = dgData.ItemsSource as List<AdvanceCustomers>;
+                        if (AdvanceCustomers != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                var result = System.Windows.MessageBox.Show("This action will overwrite any existing data, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                if (result == MessageBoxResult.Yes)
+                                {
+                                    db.BulkDelete(AdvanceCustomers);
+                                    db.BulkInsert(AdvanceCustomers);
+                                }
+                            }
+                        }
+                        break;
+                    case "5":
+                        DapperPlusManager.Entity<CustomerInvoice>().Table("CustomerInvoice");
+                        List<CustomerInvoice> invoice = dgData.ItemsSource as List<CustomerInvoice>;
+                        if (invoice != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                var result = System.Windows.MessageBox.Show("This action will overwrite any existing data, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                if (result == MessageBoxResult.Yes)
+                                {
+                                    db.BulkDelete(invoice);
+                                    db.BulkInsert(invoice);
                                 }
                             }
                         }
                         break;
                 }
+                System.Windows.MessageBox.Show("Data imported to the server successfully!");
             }
             catch (Exception ex)
             {
@@ -382,6 +500,7 @@ namespace DatabaseApp
             }
         }
 
+        //Export button
         private void btnExport_Click(object sender, RoutedEventArgs e)
         {
             string currentdatetime = DateTime.Now.ToString("yyyyMMddHHmmss");
@@ -406,19 +525,14 @@ namespace DatabaseApp
                             Workbook excelWorkbook = excelApp.Workbooks.Add();
                             Worksheet excelWorksheet = excelWorkbook.Worksheets[1];
 
-                            //Range range = excelWorksheet.Range["A1:C5"];
-                            //Formatting rangeFormatting = range.BeginUpdateFormatting();
-                            //Borders rangeBorders = rangeFormatting.Borders;
-                            //rangeBorders.LineStyle = XlLineStyle.xlContinuous;
-                            //rangeBorders[XlBordersIndex.xlEdgeTop].Weight = 10d;
-                            //rangeBorders.ColorIndex = XlRgbColor.rgbCrimson;
-                            //range.EndUpdateFormatting(rangeFormatting);
-
                             //Add the headers to first row
                             int col = 1;
                             for (int i = 0; i < reader.FieldCount; i++)
                             {
                                 excelWorksheet.Cells[1, col].Value2 = reader.GetName(i);
+                                excelWorksheet.Cells[1, col].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+                                excelWorksheet.Cells[1, col].Borders.LineStyle = 1;
+                                excelWorksheet.Cells[1, col].HorizontalAlignment = XlHAlign.xlHAlignCenter;
                                 col++;
                             }
 
@@ -429,7 +543,15 @@ namespace DatabaseApp
                                 col = 1;
                                 for (int i = 0; i < reader.FieldCount; i++)
                                 {
+                                    excelWorksheet.Cells[row, col].EntireColumn.NumberFormat = "@";
                                     excelWorksheet.Cells[row, col].Value2 = reader[i];
+                                    excelWorksheet.Cells[row, col].EntireColumn.AutoFit();
+                                    excelWorksheet.Cells[row, col].HorizontalAlignment = XlHAlign.xlHAlignLeft;
+                                    excelWorksheet.Cells[row, col].Borders.LineStyle = 1;
+                                    if (type == "CustomerInvoice")
+                                    {
+                                        excelWorksheet.Columns["P"].NumberFormat = "yyyy-MM-dd HH:mm:ss";
+                                    }
                                     col++;
                                 }
                                 row++;

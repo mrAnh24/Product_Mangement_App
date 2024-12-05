@@ -6,6 +6,7 @@ FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Acc
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\AccountRequests.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\AccountUpdate.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\AccountUpdateAdmin.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Checkout.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Error.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\ExportData.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Home.xaml;;
@@ -23,5 +24,6 @@ FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Upd
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\ClearTextBox.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\GuestFooter.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\MenuBar.xaml;;
-FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Checkout.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\RefreshButton.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\AccountLinkedUpdate.xaml;;
 

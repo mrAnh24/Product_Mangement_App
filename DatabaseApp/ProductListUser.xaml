@@ -21,8 +21,11 @@
         </Grid>
 
         <Grid Grid.Row="1" Margin="10,0,10,0" Background="SteelBlue">
-            <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="WhiteSmoke"
-                       Name="txtList"  Text="Your list of added product" FontSize="24"/>
+            <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke"
+                       Name="txtList"  Text="Your list of added product" FontSize="24" Margin="30,0,0,0"/>
+            <Button Name="btnRefresh" Content="🔄" HorizontalAlignment="Right" Margin="0,0,30,0"
+                    Click="btnRefresh_Click" Cursor="Hand" FontSize="25" Height="auto" Width="auto"
+                    Background="Transparent"/>
         </Grid>
 
         <Grid Grid.Row="2" Margin="10,0,10,0" Background="SteelBlue">
@@ -36,39 +39,64 @@
 
         <Grid Grid.Row="3" Margin="10,0,10,0" Background="SteelBlue">
             <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.8*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
-            <Grid Grid.Column="0" VerticalAlignment="Center">
-                <TextBlock Text="Number of Products:" Foreground="WhiteSmoke" Margin="30,0,0,0" FontSize="18"/>
-                <TextBlock Name="txtAmount" Text="..." Foreground="WhiteSmoke" Margin="200,0,20,0" FontSize="18"/>
+            <Grid Grid.Column="0" Margin="30,0,0,0" VerticalAlignment="Center">
+                <TextBlock Name="txtAmount" Text="0 " HorizontalAlignment="Right"
+                           Foreground="WhiteSmoke" FontSize="18"/>
             </Grid>
 
             <Grid Grid.Column="1" VerticalAlignment="Center">
-                <TextBlock Text="Total Amount:" Foreground="WhiteSmoke" Margin="60,0,0,0" FontSize="18"
-                           HorizontalAlignment="Left"/>
-                <TextBlock Name="txtTotal" Text="..." Foreground="WhiteSmoke" Margin="180,0,0,0" FontSize="18"/>
+                <TextBlock Text=" Products." HorizontalAlignment="Left"
+                           Foreground="WhiteSmoke" FontSize="18"/>
+            </Grid>
+
+            <Grid Grid.Column="2" VerticalAlignment="Center">
+                <TextBlock Name="txtItemCount" Text="0" HorizontalAlignment="Right"
+                           Foreground="WhiteSmoke" FontSize="18"/>
+            </Grid>
+
+            <Grid Grid.Column="3" VerticalAlignment="Center">
+                <TextBlock Text="  Changed." HorizontalAlignment="Left"
+                           Foreground="WhiteSmoke" FontSize="18"/>
+            </Grid>
+
+            <Grid Grid.Column="4" VerticalAlignment="Center">
+                <TextBlock Text="Totals: " HorizontalAlignment="Right"
+                           Foreground="WhiteSmoke" FontSize="18"/>
+            </Grid>
+
+            <Grid Grid.Column="5" Margin="0,0,30,0" VerticalAlignment="Center">
+                <TextBlock Name="txtTotal" Text="0 $" HorizontalAlignment="Left"
+                           Foreground="WhiteSmoke" FontSize="18"/>
             </Grid>
         </Grid>
-
-            <Grid Grid.Row="4" Margin="10,0,10,10" Background="SteelBlue">
+        
+        <Grid Grid.Row="4" Margin="10,0,10,10" Background="SteelBlue">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Column="0">
-                <Button Name="btnReturn" Content="Back" Margin="30,0,0,0"
-                        HorizontalAlignment="Left" Click="btnReturn_Click" Cursor="Hand"/>
-                <Button Name="btnClear" Content="Clear" HorizontalAlignment="Right" Margin="0,0,25,0"
-                        Click="btnClear_Click"  Cursor="Hand"/>
+                <TextBlock VerticalAlignment="Center" Margin="30,0,0,0">
+                    <Hyperlink Foreground="WhiteSmoke" Name="HlBack" Click="btnReturn_Click" 
+                               Cursor="Hand" FontSize="16">
+                        ↩ Back to Products list
+                    </Hyperlink>
+                </TextBlock>
             </Grid>
 
             <Grid Grid.Column="1" VerticalAlignment="Center">
-                <Button Name="btnRefresh" Content="Refresh" HorizontalAlignment="Left" Margin="25,0,0,0"
-                        Click="btnRefresh_Click"  Cursor="Hand"/>
-                <Button Name="btnSubmit" Content="Submit" HorizontalAlignment="Right" Margin="0,0,30,0"
+                <Button Name="btnClear" Content="Clear" HorizontalAlignment="Right" Margin="0,0,120,0"
+                        Click="btnClear_Click"  Cursor="Hand"/>
+                <Button Name="btnSubmit" Content="Confirm" HorizontalAlignment="Right" Margin="0,0,30,0"
                         Click="btnSubmit_Click" Cursor="Hand"/>
             </Grid>
         </Grid>

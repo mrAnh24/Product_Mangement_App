@@ -1,5 +1,8 @@
-﻿using System;
+﻿using DatabaseApp.Data;
+using System;
+using DatabaseApp.Data.DataModels;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,14 +22,24 @@ namespace DatabaseApp
     /// </summary>
     public partial class AccountRequests : Window
     {
+        List<Activity> activities = new List<Activity>();
         public AccountRequests()
         {
             InitializeComponent();
+            ActivityLog();
         }
+        SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
 
         private void btnClear_Click(object sender, RoutedEventArgs e)
         {
             tbSearch.Clear();
+        }
+
+        public void ActivityLog()
+        {
+            var db = new ActivityDb();
+            activities = db.activities.ToList();
+            dgActivity.ItemsSource = activities;
         }
 
         private void btnFilter1_Click(object sender, RoutedEventArgs e)

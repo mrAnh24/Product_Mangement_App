@@ -1,6 +1,8 @@
 ﻿using DatabaseApp.Data;
 using DatabaseApp.Data.DataModels;
+using DatabaseApp.View.UserControls;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using DocumentFormat.OpenXml.Office2016.Drawing.ChartDrawing;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,9 +34,10 @@ namespace DatabaseApp
     public partial class ProductListUser : Window
     {
         string connectionString = "Data Source=OS-GPCP-GPDN171\\MSSQLSERVER01;Initial catalog=dbdemo;Persist Security info=True;Encrypt=false;;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true";
-        public static double total = 0;
-        public static double number = 0;
-        public static int count = 0;
+        public static double total;
+        public static double number;
+        public static double number2;
+        public static int itemsCount = 0;
         public ProductListUser()
         {
             InitializeComponent();
@@ -55,9 +58,14 @@ namespace DatabaseApp
             foreach (double Item in totals)
             {
                 number += Item;
-                count++;
             }
-            txtAmount.Text = number + " $";
+            txtAmount.Text = number.ToString();
+            number2 = number;
+            txtItemCount.Text = itemsCount.ToString();
+
+            ProductList.finalAmount.Clear();
+            ProductList.finalNumber.Clear();
+
             //foreach (var item in ProductList.list)
             //{
             //    Name = ProductList.list[0].Product,
@@ -89,9 +97,17 @@ namespace DatabaseApp
                 if(ProductList.list.Count != 0)
                 {
                     total = 0;
+                    number = 0;
+                    itemsCount = 0;
+                    txtAmount.Text = total.ToString();
                     txtTotal.Text = total + " $";
+                    txtItemCount.Text = "0";
+
+                    ProductList.finalNumber.Clear();
                     ProductList.finalAmount.Clear();
                     ProductList.list.Clear();
+                    dgList.Items.Refresh();
+                    //dgList.Items.Clear();
                 }
                 else
                 {
@@ -118,6 +134,19 @@ namespace DatabaseApp
             //        System.Windows.MessageBox.Show("List saved","info");
             //    }
             //}
+            if (ProductList.list.Count != 0)
+            {
+                var result = System.Windows.MessageBox.Show("Your list can't not be change after this, continue?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    new Checkout().Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Empty list","Error");
+            }
         }
     }
 }

@@ -26,17 +26,26 @@ namespace DatabaseApp
     /// </summary>
     public partial class ProductList : Window
     {
+        //ProductList lists
         List<Products> products = new List<Products>();
         public static List<CustomerList> list = new List<CustomerList>(); //Customer list
         public static List<double> finalAmount = new List<double>(); //totals price
         public static List<double> finalNumber = new List<double>(); //totals number of products
 
+        //ProductList values
         public static string index; //placeholder for productCode
         public static int count; // total number of products in grid
         public static int selectedIndex;
         public static string detail;
         public static double totals; //price
         public static double amounts; //number of products
+        public static string placeholder; // temp for a for product
+
+        //Home values
+        public static string homeName = "";
+        public static string homeCode = "";
+        public static string homeDescription = "";
+        public static string homePrice = "";
 
         public ProductList()
         {
@@ -45,6 +54,11 @@ namespace DatabaseApp
             //LoadGrid();
             count = dgProduct.Items.Count;
             selectedIndex = dgProduct.SelectedIndex;
+
+            txtProduct.Content = homeName;
+            txtProductCode.Content = homeCode;
+            txtDescription.Content = homeDescription;
+            txtPrice.Content = homePrice;
         }
         DataTableCollection tableCollection;
         SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
@@ -161,19 +175,24 @@ namespace DatabaseApp
                         addProducts.Price = Convert.ToDouble(txtPrice.Content.ToString());
                         addProducts.Amount = Convert.ToDouble(amounts.ToString());
 
-                        list.Add(addProducts);
-
-                        //products.Add(txtProduct.Content, txtProductCode.Content, txtDescription.Content, txtPrice.ToString());
-
-                        //DataTable dt = tableCollection[dgProduct.SelectedItem.ToString()];
-                        //for (int i = 0; i < dt.Rows.Count; i++)
+                        ////group same products
+                        //var groupedList = list.GroupBy(item => item.ProductCode);
+                        //foreach (var g in groupedList)
                         //{
-                        //    Products current = new Products();
-                        //    current.Product = dt.Rows[i]["Product"].ToString();
-                        //    current.ProductCode = dt.Rows[i]["ProductCode"].ToString();
-                        //    current.Description = dt.Rows[i]["Description"].ToString();
-                        //    current.Price = Convert.ToDouble(dt.Rows[i]["Price"].ToString());
-                        //    products.Add(current);
+                        //    var sum = g.Sum(i => i.Amount);
+                        //}
+                        //list.Add((CustomerList)groupedList);
+
+                        list.Add(addProducts);
+                        ProductListUser.itemsCount += 1;
+
+                        //if (list.Contains(addProducts))
+                        //{
+                        //    amounts += mon;
+                        //}
+                        //else
+                        //{
+                        //    list.Add(addProducts);
                         //}
                     }
                 }
@@ -385,6 +404,25 @@ namespace DatabaseApp
         private void btnSearchClear_Click(object sender, RoutedEventArgs e)
         {
             tbSearch.Clear();
+        }
+
+        private void btnConfirm_Click(object sender, RoutedEventArgs e)
+        {
+            if (Login.passText == "Guest account")
+            {
+                System.Windows.MessageBox.Show("Needed an account", "error");
+                var result = System.Windows.MessageBox.Show("Create an account?", "suggestion", MessageBoxButton.YesNo, (MessageBoxImage)MessageBoxIcon.Information);
+                if (result == MessageBoxResult.Yes)
+                {
+                    new Register().Show();
+                    this.Close();
+                }
+            }
+            else
+            {
+                new ProductListUser().Show();
+                this.Close();
+            }
         }
     }
 

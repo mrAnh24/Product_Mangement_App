@@ -53,7 +53,7 @@
                 </Grid>
 
                 <Grid Grid.Column="2">
-                    <Button Name="btnLoad" Content="..." Margin="-25,0,15,25" Cursor="Hand"/>
+                    <Button Name="btnLoad" Content="📁" Margin="-25,0,15,25" Cursor="Hand"/>
                 </Grid>
             </Grid>
 

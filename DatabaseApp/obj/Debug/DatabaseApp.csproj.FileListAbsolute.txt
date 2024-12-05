@@ -599,3 +599,7 @@ D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\AccountRequests.baml
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\Checkout.g.cs
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\Checkout.baml
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\View\UserControls\RefreshButton.g.cs
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\View\UserControls\RefreshButton.baml
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\AccountLinkedUpdate.g.cs
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\AccountLinkedUpdate.baml

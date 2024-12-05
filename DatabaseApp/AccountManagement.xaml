@@ -22,7 +22,7 @@
 
         <Grid Grid.Row="1" Background="SteelBlue" Margin="15,0,15,0">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="2.35*"/>
+                <ColumnDefinition Width="3.6*"/>
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
@@ -44,8 +44,9 @@
             <Grid Grid.Column="1">
                 <Button Name="btnSearch" Content="Search"  Margin="10,0,0,0"  
                         HorizontalAlignment="Left" Click="btnSearch_Click" Cursor="Hand"/>
-                <Button Name="btnReload" Content="Reload" Margin="0,0,10,0" 
-                        HorizontalAlignment="Right" Click="btnReload_Click" Cursor="Hand"/>
+                <Button Name="btnReload" Content="🔄" Margin="0,0,10,0" FontSize="20"
+                        HorizontalAlignment="Right" Click="btnReload_Click" Cursor="Hand"
+                        Width="auto" Height="auto" Background="Transparent"/>
             </Grid>
         </Grid>
 
