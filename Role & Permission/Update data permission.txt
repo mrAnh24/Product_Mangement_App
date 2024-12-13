@@ -1,0 +1,10 @@
+- Normal CB selection:
++ Products (admin) (Lv4) (Lv3)
++ Customer (admin) (Lv4) (Lv3)
++ CustomerListFinal (storing final CustomerList) (admin) (Lv4) (Lv3)
+
+- Test CB selection:
++ AccountTest (admin)
++ AccountLinked (admin) (Lv4)
+
+Role: (admin) (Lv4) (Lv3) (Lv2)

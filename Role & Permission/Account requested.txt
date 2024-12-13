@@ -1,0 +1,21 @@
+// Checkout on hold:
+- Checkout complete. (?)
+
+// Data modified:
+- CustomerInvoice data modified. (no import) (v)
+- Account data modified. (v)
+- Product data modified. (v)
+
+// Update products:
+- Add product. (?)
+- Update product. (?)
+- Delete product. (?)
+
+// Notify:
+- Account created. (v)
+- Account upload a CSV file. (v)
+- Account login. (v)
+- Account logout. (v)
+- Account deleted. (v)
+- Guest visit. (v)
+
