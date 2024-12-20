@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="DatabaseApp.View.UserControls.GuestFooter"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DatabaseApp.View.UserControls"
+             mc:Ignorable="d" 
+             d:DesignHeight="55" d:DesignWidth="500">
+    <Grid Margin="10,0,10,0">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1.7*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <Grid Grid.Column="0">
+            <Label Content="Explore more option with an account" VerticalAlignment="Center" FontSize="16"
+                   Foreground="WhiteSmoke"/>
+        </Grid>
+
+        <Grid Grid.Column="2">
+            <Button Name="btnRegister" Content="Register" HorizontalAlignment="Right" Click="btnRegister_Click"/>
+            <Button Name="btnLogin" Content="Login" HorizontalAlignment="Right" Margin="0,0,90,0" Click="btnLogin_Click"/>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,76 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\view\\usercontrols\\menubar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\view\\usercontrols\\menubar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|d:\\tda_intern\\projects\\databaseapp\\product_mangement_app-master\\databaseapp\\orderproductdetail.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\orderproductdetail.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\App.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\App.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\App.xaml",
+              "RelativeToolTip": "DatabaseApp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-19T01:05:47.926Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MenuBar.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "ViewState": "AgIAAKYAAAAAAAAAAAA9wLEAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T02:37:57.508Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderProductDetail.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderProductDetail.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\OrderProductDetail.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderProductDetail.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\OrderProductDetail.xaml.cs",
+              "ViewState": "AgIAAEQAAAAAAAAAAAAAAGIAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T08:04:49.496Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
