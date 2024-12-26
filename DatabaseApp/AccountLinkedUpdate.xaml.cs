@@ -9,6 +9,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -21,11 +22,18 @@ namespace DatabaseApp
     /// </summary>
     public partial class AccountLinkedUpdate : Window
     {
+        //--AccountLinked--/
+        public string link1;
+        public string link2;
+        public string link3;
+        public string link4;
+        //--AccountLinked--/
+
         public AccountLinkedUpdate(Window parentWindow)
         {
             Owner = parentWindow;
             InitializeComponent();
-            lbLinked.Content = $"Update {Login.passText} Linked accounts";
+            lbLinked.Content = $"{Login.passText} Linked accounts";
 
             con.Open();
             SqlCommand cmd = new SqlCommand("Select * from AccountLinked where Username = @username", con);
@@ -33,10 +41,10 @@ namespace DatabaseApp
             SqlDataReader da = cmd.ExecuteReader();
             while (da.Read())
             {
-                tbApple.Text = da.GetValue(2).ToString();
-                tbFacebook.Text = da.GetValue(3).ToString();
-                tbTwitter.Text = da.GetValue(4).ToString();
-                tbGithub.Text = da.GetValue(5).ToString();
+                tbApple.Text = link1 = da.GetValue(2).ToString();
+                tbFacebook.Text = link2 = da.GetValue(3).ToString();
+                tbTwitter.Text = link3 = da.GetValue(4).ToString();
+                tbGithub.Text = link4 = da.GetValue(5).ToString();
             }
             con.Close();
 
@@ -55,19 +63,31 @@ namespace DatabaseApp
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            con.Open();
-            SqlCommand cmd = new SqlCommand("Update AccountLinked Set Apple = @Apple, Facebook = @Facebook, Twitter = @Twitter, Github = @Github  Where Username = @Username", con);
-            cmd.Parameters.AddWithValue("@Apple", tbApple.Text);
-            cmd.Parameters.AddWithValue("@Facebook", tbFacebook.Text);
-            cmd.Parameters.AddWithValue("@Twitter", tbTwitter.Text);
-            cmd.Parameters.AddWithValue("@Github", tbGithub.Text);
-            cmd.Parameters.AddWithValue("@Username", Login.passText);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            if(tbApple.Text == link1 && tbFacebook.Text == link2 && tbTwitter.Text == link3 && tbGithub.Text == link4)
+            {
+                System.Windows.MessageBox.Show("No change was made", "Notification");
+                this.Close();
+            }
+            else
+            {
+                var result = System.Windows.MessageBox.Show("Update linked account?", "Notification", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                if (result == MessageBoxResult.Yes)
+                {
+                    con.Open();
+                    SqlCommand cmd = new SqlCommand("Update AccountLinked Set Apple = @Apple, Facebook = @Facebook, Twitter = @Twitter, Github = @Github  Where Username = @Username", con);
+                    cmd.Parameters.AddWithValue("@Apple", tbApple.Text);
+                    cmd.Parameters.AddWithValue("@Facebook", tbFacebook.Text);
+                    cmd.Parameters.AddWithValue("@Twitter", tbTwitter.Text);
+                    cmd.Parameters.AddWithValue("@Github", tbGithub.Text);
+                    cmd.Parameters.AddWithValue("@Username", Login.passText);
+                    cmd.ExecuteNonQuery();
+                    con.Close();
 
-            ActivityLog();
-            System.Windows.MessageBox.Show("Account linked information updated", "Success");
-            this.Close();
+                    ActivityLog();
+                    System.Windows.MessageBox.Show("Account linked information updated", "Success");
+                    this.Close();
+                }
+            }
         }
 
         private void btnClear_Click(object sender, RoutedEventArgs e)

@@ -35,6 +35,7 @@
 
             <MenuItem Name="mAdmin" Header="Admin" FontSize="16">
                 <MenuItem Name="miInvoiceManagement" Header="Invoice Management" Click="miHomeAdmin_Click"/>
+                <MenuItem Name="miOrderManagement" Header="Order Management" Click="miOrderManagement_Click"/>
                 <MenuItem Name="miRequest" Header="Account requests" Click="miRequest_Click"/>
                 <MenuItem Name="miDatabase" Header="Account management" Click="miDatabase_Click"/>
             </MenuItem>

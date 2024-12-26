@@ -18,6 +18,11 @@ FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Inv
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\InvoiceManagement.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Login.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\MainWindow.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderDetail.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderManagement.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderManagementDetail.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderManagementUpdate.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderProductDetail.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderStatus.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\PasswordChange.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\PasswordConfirmation.xaml;;
@@ -29,10 +34,9 @@ FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Pro
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Register.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\Update.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\UpdateData.xaml;;
+FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\UpdateProductAdd.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\ClearTextBox.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\GuestFooter.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\MenuBar.xaml;;
 FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\View\UserControls\RefreshButton.xaml;;
-FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderDetail.xaml;;
-FD:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\OrderProductDetail.xaml;;
 

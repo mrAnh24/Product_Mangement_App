@@ -87,21 +87,24 @@
                     <Grid Grid.Column="0" Margin="10">
                         <StackPanel>
                             <TextBlock Text="Name (*)"/>
-                            <TextBox Name="tbName"/>
+                            <TextBox Name="tbName" Height="20"/>
                             <TextBlock Text="Gender"/>
-                            <ComboBox Name="cbGender" Width="auto" Height="auto" IsEditable="False" Foreground="Black">
+                            <ComboBox Name="cbGender" Width="auto" Height="20" IsEditable="False" 
+                                      Foreground="Black" SelectionChanged="cbGender_SelectionChanged">
                                 <ComboBoxItem Content="Male"/>
                                 <ComboBoxItem  Content="Female"/>
                                 <ComboBoxItem  Content="Unknown"/>
                             </ComboBox>
                             <TextBlock Text="Company"/>
-                            <TextBox Name="tbCompany"/>
+                            <TextBox Name="tbCompany" Height="20"/>
                             <TextBlock Text="City (*)"/>
-                            <TextBox Name="tbCity"/>
+                            <TextBox Name="tbCity" Height="20"/>
                             <TextBlock Text="Postal Code (*)"/>
-                            <TextBox Name="tbPostalCode" PreviewTextInput="tbPostalCode_PreviewTextInput"/>
+                            <TextBox Name="tbPostalCode" PreviewTextInput="tbPostalCode_PreviewTextInput"
+                                      Height="20"/>
                             <TextBlock Text="Phone numbers (*)"/>
-                            <TextBox Name="tbPhone" PreviewTextInput="tbPhone_PreviewTextInput"/>
+                            <TextBox Name="tbPhone" PreviewTextInput="tbPhone_PreviewTextInput"
+                                      Height="20"/>
                         </StackPanel>
                         <TextBlock Text="Product expected to arrived within a week" VerticalAlignment="Bottom"
                                    Margin="0,0,-120,0" TextDecorations="Underline"/>
@@ -110,15 +113,23 @@
                     <Grid Grid.Column="1" Margin="10">
                         <StackPanel>
                             <TextBlock Text="Job title"/>
-                            <TextBox Name="tbTitle"/>
+                            <TextBox Name="tbTitle" Height="20"/>
                             <TextBlock Text="Address (*)"/>
-                            <TextBox Name="tbAddress"/>
+                            <TextBox Name="tbAddress" Height="20"/>
                             <TextBlock Text="Region (*)"/>
-                            <TextBox Name="tbRegion"/>
+                            <ComboBox Name="tbRegion" Height="20" Width="auto" Foreground="Black" IsEditable="False"
+                                      SelectionChanged="tbRegion_SelectionChanged">
+                                <ComboBoxItem Content="North"/>
+                                <ComboBoxItem Content="East"/>
+                                <ComboBoxItem Content="Middle"/>
+                                <ComboBoxItem Content="West"/>
+                                <ComboBoxItem Content="South"/>
+                            </ComboBox>
                             <TextBlock Text="Country (*)"/>
-                            <TextBox Name="tbCountry"/>
+                            <TextBox Name="tbCountry" Height="20"/>
                             <TextBlock Text="Fax numbers"/>
-                            <TextBox Name="tbFax" PreviewTextInput="tbFax_PreviewTextInput"/>
+                            <TextBox Name="tbFax" Height="20" 
+                                     PreviewTextInput="tbFax_PreviewTextInput"/>
                         </StackPanel>
 
                         <Button Name="btnFill" Content="🎲" VerticalAlignment="Bottom" Cursor="Hand"

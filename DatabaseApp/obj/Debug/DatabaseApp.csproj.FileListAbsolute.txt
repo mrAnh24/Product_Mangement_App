@@ -621,3 +621,11 @@ D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderProductDetail.g.cs
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderDetail.baml
 D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderProductDetail.baml
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderManagement.g.cs
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderManagementDetail.g.cs
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderManagement.baml
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderManagementDetail.baml
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderManagementUpdate.g.cs
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\OrderManagementUpdate.baml
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\UpdateProductAdd.g.cs
+D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\DatabaseApp\obj\Debug\UpdateProductAdd.baml

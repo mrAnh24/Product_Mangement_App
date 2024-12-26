@@ -22,8 +22,11 @@
         <Grid Grid.Row="1" Margin="10,0,10,0" Background="SteelBlue">
             <TextBlock HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="WhiteSmoke"
                        Name="txtList"  Text="Your list of added product" FontSize="24" Margin="30,0,0,0"/>
-            <Button Name="btnRefresh" Content="🔄" HorizontalAlignment="Right" Margin="0,0,30,0"
-                    Click="btnRefresh_Click" Cursor="Hand" FontSize="25" Height="auto" Width="auto"
+            <Button Name="btnAccount" Content="👤" HorizontalAlignment="Right" Margin="0,0,50,0"
+                    Click="btnAccount_Click"  Cursor="Hand" Height="auto" Width="auto" FontSize="24"
+                    Background="Transparent"/>
+            <Button Name="btnRefresh" Content="🔄" HorizontalAlignment="Right" Margin="0,0,10,0"
+                    Click="btnRefresh_Click" Cursor="Hand" FontSize="24" Height="auto" Width="auto"
                     Background="Transparent"/>
         </Grid>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseApp.Data.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -24,16 +25,30 @@ namespace DatabaseApp
     public partial class ProductListUserAmount : Window
     {
         public string tableName;
+        public double o7;
 
         public ProductListUserAmount(Window parentWindow)
         {
             InitializeComponent();
             Owner = parentWindow;
-            string accountName = Login.passText;
+            ProductNumber();
             txtName.Text = $"Enter amount of {ProductListUser.name}";
             tbSubmit.Text = ProductListUser.amount.ToString();
         }
         SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
+
+        void ProductNumber()
+        {
+            con.Open();
+            SqlCommand cmd = new SqlCommand("Select * from CustomerList where OrderID = @OrderID", con);
+            cmd.Parameters.AddWithValue("@OrderID", ProductListUser.index);
+            SqlDataReader da = cmd.ExecuteReader();
+            while (da.Read())
+            {
+                o7 = Convert.ToDouble(da.GetValue(7));
+            }
+            con.Close();
+        }
 
         void AmountChange()
         {
@@ -53,20 +68,28 @@ namespace DatabaseApp
             }
             else
             {
-                tableName = "CustomerList";
-                AmountChange();
+                if (tbSubmit.Text == o7.ToString())
+                {
+                    System.Windows.MessageBox.Show("No change was made", "Notification");
+                    this.Close();
+                }
+                else
+                {
+                    tableName = "CustomerList";
+                    AmountChange();
 
-                tableName = "CustomerListFinal";
-                AmountChange();
+                    tableName = "CustomerListFinal";
+                    AmountChange();
 
-                ProductListUser.total -= ProductListUser.itemSum;
-                ProductListUser.total += (Convert.ToDouble(tbSubmit.Text)* ProductListUser.itemPrice);
-                ProductListUser.number -= ProductListUser.amount;
-                ProductListUser.number += Convert.ToDouble(tbSubmit.Text);
-                ProductListUser.itemsCount++;
+                    ProductListUser.total -= ProductListUser.itemSum;
+                    ProductListUser.total += (Convert.ToDouble(tbSubmit.Text) * ProductListUser.itemPrice);
+                    ProductListUser.number -= ProductListUser.amount;
+                    ProductListUser.number += Convert.ToDouble(tbSubmit.Text);
+                    ProductListUser.itemsCount++;
 
-                System.Windows.MessageBox.Show($"Amount of {ProductListUser.name} changed", "Notify");
-                this.Close();
+                    System.Windows.MessageBox.Show($"Amount of {ProductListUser.name} changed", "Notify");
+                    this.Close();
+                }
             }
         }
 

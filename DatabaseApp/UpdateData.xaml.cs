@@ -48,6 +48,7 @@ namespace DatabaseApp
                 case "admin":
                     cbAccountTest.Visibility= Visibility.Visible;
                     cbAccountLinked.Visibility= Visibility.Visible;
+                    cbProductList.Visibility= Visibility.Visible;
                     btnDelete.IsEnabled = true;
                     btnDelete.Foreground = Brushes.WhiteSmoke;
                     break;
@@ -61,7 +62,7 @@ namespace DatabaseApp
         }
         DataTableCollection tableCollection;
         SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
-       
+
         void DataNotLoad()
         {
             btnUpload.IsEnabled = false;
@@ -98,9 +99,9 @@ namespace DatabaseApp
 
         public void LoadGrid()
         {
+            con.Open();
             SqlCommand cmd = new SqlCommand($"Select * from {type}", con);
             System.Data.DataTable dt = new System.Data.DataTable();
-            con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
             dt.Load(sdr);
             con.Close();
@@ -153,6 +154,11 @@ namespace DatabaseApp
                     break;
                 case "5":
                     cbType.Text = type = "AccountLinked";
+                    LoadGrid();
+                    ExportData();
+                    break;
+                case "6":
+                    cbType.Text = type = "ProductList";
                     LoadGrid();
                     ExportData();
                     break;
@@ -313,6 +319,30 @@ namespace DatabaseApp
                         btnImport.IsEnabled = false;
                     }
                     break;
+                case "6":
+                    List<ProductLists> productLists = new List<ProductLists>();
+                    if (dt != null)
+                    {
+                        for (int i = 0; i < dt.Rows.Count; i++)
+                        {
+                            ProductLists info = new ProductLists();
+                            info.ProductCode = dt.Rows[i]["ProductCode"].ToString();
+                            info.Product = dt.Rows[i]["Product"].ToString();                            
+                            info.Description = dt.Rows[i]["Description"].ToString();
+                            info.Type = dt.Rows[i]["Type"].ToString();
+                            info.Price = Convert.ToDouble(dt.Rows[i]["Price"].ToString());
+                            info.Amount = Convert.ToDouble(dt.Rows[i]["Amount"].ToString());
+                            info.Status = dt.Rows[i]["Status"].ToString();
+                            info.CreatedBy = dt.Rows[i]["CreatedBy"].ToString();
+                            info.TimeCreated = Convert.ToDateTime(dt.Rows[i]["TimeCreated"]);
+                            info.ModifiedBy = dt.Rows[i]["ModifiedBy"].ToString();
+                            info.TimeModified = Convert.ToDateTime(dt.Rows[i]["TimeModified"]);
+                            productLists.Add(info);
+                        }
+                        dgData.ItemsSource = productLists;
+                        btnImport.IsEnabled = false;
+                    }
+                    break;
             }
             DataLoad();
         }     
@@ -384,6 +414,18 @@ namespace DatabaseApp
                             }
                         }
                         break;
+                    case "6":
+                        DapperPlusManager.Entity<ProductLists>().Table("ProductList");
+                        List<ProductLists> productLists = dgData.ItemsSource as List<ProductLists>;
+                        if (productLists != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                db.BulkMerge(productLists);
+                                System.Windows.MessageBox.Show("Data updated to the server successfully!");
+                            }
+                        }
+                        break;
                 }
                 function = "Update on";
                 item = "database";
@@ -425,7 +467,7 @@ namespace DatabaseApp
                         {
                             using (IDbConnection db = new SqlConnection(connectionString))
                             {
-                                var result = System.Windows.MessageBox.Show("All customers info will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                var result = System.Windows.MessageBox.Show("All customers information will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(customer);
@@ -441,7 +483,7 @@ namespace DatabaseApp
                         {
                             using (IDbConnection db = new SqlConnection(connectionString))
                             {
-                                var result = System.Windows.MessageBox.Show("All customers info will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                var result = System.Windows.MessageBox.Show("All customers information will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(customerListFinal);
@@ -457,7 +499,7 @@ namespace DatabaseApp
                         {
                             using (IDbConnection db = new SqlConnection(connectionString))
                             {
-                                var result = System.Windows.MessageBox.Show("All accountTests info will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                var result = System.Windows.MessageBox.Show("All accountTests information will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(accountTest);
@@ -473,10 +515,26 @@ namespace DatabaseApp
                         {
                             using (IDbConnection db = new SqlConnection(connectionString))
                             {
-                                var result = System.Windows.MessageBox.Show("All accountLinkeds info will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                var result = System.Windows.MessageBox.Show("All account linked information will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkDelete(accountLinked);
+                                    System.Windows.MessageBox.Show("Data wiped from the server successfully!");
+                                }
+                            }
+                        }
+                        break;
+                    case "6":
+                        DapperPlusManager.Entity<ProductLists>().Table("ProductList");
+                        List<ProductLists> productLists = dgData.ItemsSource as List<ProductLists>;
+                        if (productLists != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                var result = System.Windows.MessageBox.Show("All products list information will be delete, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                if (result == MessageBoxResult.Yes)
+                                {
+                                    db.BulkDelete(productLists);
                                     System.Windows.MessageBox.Show("Data wiped from the server successfully!");
                                 }
                             }
@@ -581,6 +639,22 @@ namespace DatabaseApp
                                 if (result == MessageBoxResult.Yes)
                                 {
                                     db.BulkInsert(accountLinked);
+                                    System.Windows.MessageBox.Show("Data imported to the server successfully!");
+                                }
+                            }
+                        }
+                        break;
+                    case "6":
+                        DapperPlusManager.Entity<ProductLists>().Table("ProductList");
+                        List<ProductLists> productLists = dgData.ItemsSource as List<ProductLists>;
+                        if (productLists != null)
+                        {
+                            using (IDbConnection db = new SqlConnection(connectionString))
+                            {
+                                var result = System.Windows.MessageBox.Show("This action will overwrite any existing data, are you sure?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                                if (result == MessageBoxResult.Yes)
+                                {
+                                    db.BulkInsert(productLists);
                                     System.Windows.MessageBox.Show("Data imported to the server successfully!");
                                 }
                             }

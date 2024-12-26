@@ -49,13 +49,18 @@ namespace DatabaseApp
         public void RolePermissionGreen()
         {
             boxAccountManager.Background = Brushes.ForestGreen;
+            boxInvoiceManager.Background = Brushes.ForestGreen;
             boxAccountRequest.Background = Brushes.ForestGreen;
-            boxCustomerData.Background = Brushes.ForestGreen;
+
+            boxUpdateData.Background = Brushes.ForestGreen;
             boxUpdateProducts.Background = Brushes.ForestGreen;
             boxOpenExcelFile.Background = Brushes.ForestGreen;
+
             boxPermission.Background = Brushes.ForestGreen;
             boxEditAccount.Background = Brushes.ForestGreen;
+            boxAccountOrder.Background = Brushes.ForestGreen;
             boxUserList.Background = Brushes.ForestGreen;
+
             boxProductList.Background = Brushes.ForestGreen;
             boxHome.Background = Brushes.ForestGreen;
         }
@@ -63,13 +68,18 @@ namespace DatabaseApp
         void RolePermissionRed()
         {
             boxAccountManager.Background = Brushes.Red;
+            boxInvoiceManager.Background = Brushes.Red;
             boxAccountRequest.Background = Brushes.Red;
-            boxCustomerData.Background = Brushes.Red;
+
+            boxUpdateData.Background = Brushes.Red;
             boxUpdateProducts.Background = Brushes.Red;
             boxOpenExcelFile.Background = Brushes.Red;
+
             boxPermission.Background = Brushes.Red;
+            boxAccountOrder.Background = Brushes.Red;
             boxEditAccount.Background = Brushes.Red;
             boxUserList.Background = Brushes.Red;
+
             boxProductList.Background = Brushes.Red;
         }
 
@@ -135,7 +145,10 @@ namespace DatabaseApp
                     boxEditAccount.Background = Brushes.ForestGreen;
                     boxUserList.Background = Brushes.ForestGreen;
                     boxProductList.Background = Brushes.ForestGreen;
-                    txtDetail.Text = "- Have an account with personal info. \n- Can add products to personal list.";
+                    boxAccountOrder.Background = Brushes.ForestGreen;
+                    txtDetail.Text = "- Have an account with personal info. " +
+                                     "\n- Can add products to personal list." +
+                                     "\n- Can check list history.";
                     break;
                 case "2":
                     txtRole.Text = "Lv2";
@@ -143,11 +156,13 @@ namespace DatabaseApp
                     RolePermissionGreen();
                     txtCurrentRoleNumber.Text = listOfRole.Count().ToString();
                     boxAccountManager.Background = Brushes.Red;
+                    boxInvoiceManager.Background = Brushes.Red;
                     boxAccountRequest.Background = Brushes.Red;
-                    boxCustomerData.Background = Brushes.Yellow;
+                    boxUpdateData.Background = Brushes.Red;
                     boxUpdateProducts.Background = Brushes.Red;
-                    txtDetail.Text = "- Gain access to all of Lv1 permission. \n- Access to Permission page." +
-                                     "\n- Can upload and open an excel file. \n- Can send request to update customers list.";
+                    txtDetail.Text = "- Gain access to all of Lv1 permission. " +
+                                     "\n- Access to Permission page." +
+                                     "\n- Can upload and working with a CSV file. ";
                     break;
                 case "3":
                     txtRole.Text = "Lv3";
@@ -155,9 +170,12 @@ namespace DatabaseApp
                     RolePermissionGreen();
                     txtCurrentRoleNumber.Text = listOfRole.Count().ToString();
                     boxAccountManager.Background = Brushes.Red;
+                    boxInvoiceManager.Background = Brushes.Red;
                     boxAccountRequest.Background = Brushes.Red;
-                    boxCustomerData.Background = Brushes.Yellow;
-                    txtDetail.Text = "- Gain access to all of Lv2 permission. \n- Full access to products data.";
+                    boxUpdateData.Background = Brushes.Yellow;
+                    txtDetail.Text = "- Gain access to all of Lv2 permission. " +
+                                     "\n- Can modified products data. (Update product)" +
+                                     "\n- Can work with test data. (Update data)";
                     break;
                 case "4":
                     txtRole.Text = "Lv4";
@@ -166,8 +184,11 @@ namespace DatabaseApp
                     txtCurrentRoleNumber.Text = listOfRole.Count().ToString();
                     boxAccountManager.Background = Brushes.Red;
                     boxAccountRequest.Background = Brushes.Yellow;
-                    txtDetail.Text = "- Gain access to all of Lv3 permission. \n- Can send request to update account list." +
-                                     "\n- Can check the request sent to admin.";
+                    boxUpdateData.Background = Brushes.Yellow;
+                    txtDetail.Text = "- Gain access to all of Lv3 permission. " +
+                                     "\n- Special admin home page." +
+                                     "\n- Can check and approve account's requests." +
+                                     "\n- Can work with customer's invoices.";
                     break;
                 case "5":
                     txtRole.Text = "admin";
@@ -175,8 +196,9 @@ namespace DatabaseApp
                     RolePermissionGreen();
                     txtCurrentRoleNumber.Text = listOfRole.Count().ToString();
                     boxEditAccount.Background = Brushes.Yellow;
-                    txtDetail.Text = "- Get Full access to all pages and functions. \n- Can only change specific admin info." +
-                                     "\n- Manage all accounts. \n- Check and approve requests.";
+                    txtDetail.Text = "- Get Full access to all pages and functions. " +
+                                     "\n- Can only change specific admin info." +
+                                     "\n- Manage all accounts. ";
                     break;
                 default:
                     txtRole.Text = "Guest";
@@ -185,8 +207,9 @@ namespace DatabaseApp
                     lbCurrentRoleNumber.Visibility = Visibility.Collapsed;
                     txtCurrentRoleNumber.Visibility = Visibility.Collapsed;
                     boxProductList.Background = Brushes.Yellow;
-                    txtDetail.Text = "- Access to home page. \n- See the products. (but can't put on list) " +
-                                     "\n- Access to a special footer.";
+                    txtDetail.Text = "- Access to home page. " +
+                                     "\n- See the products. (can't put on list) " +
+                                     "\n- Access to a special footer. (login + register recommend)";
                     break;
             }
         }

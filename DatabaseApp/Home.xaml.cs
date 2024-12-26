@@ -45,11 +45,11 @@ namespace DatabaseApp
             txtTitle3.Text = "Wine";
 
             LoadProduct(txtTitle1.Text);
-            txtPrice1.Text = ProductList.homePrice + " $";
+            txtPrice1.Text = ProductList.productPrice + " $";
             LoadProduct(txtTitle2.Text);
-            txtPrice2.Text = ProductList.homePrice + " $";
+            txtPrice2.Text = ProductList.productPrice + " $";
             LoadProduct(txtTitle3.Text);
-            txtPrice3.Text = ProductList.homePrice + " $";
+            txtPrice3.Text = ProductList.productPrice + " $";
 
             if(Login.passText != "Guest account")
             {
@@ -85,17 +85,18 @@ namespace DatabaseApp
 
         public void LoadProduct(string Title)
         {
-            SqlCommand cmd = new SqlCommand("Select * from Products where Product = @Product", con);
+            SqlCommand cmd = new SqlCommand("Select * from ProductLists where Product = @Product", con);
             cmd.Parameters.AddWithValue("@Product", Title);
             DataTable dt = new DataTable();
             con.Open();
             SqlDataReader da = cmd.ExecuteReader();
             while (da.Read())
             {
-                ProductList.homeName = da.GetValue(0).ToString();
-                ProductList.homeCode = da.GetValue(1).ToString();
-                ProductList.homeDescription = da.GetValue(2).ToString();
-                ProductList.homePrice = da.GetValue(3).ToString();
+                ProductList.productID = da.GetValue(0).ToString();
+                ProductList.productName = da.GetValue(1).ToString();
+                ProductList.productPrice = da.GetValue(4).ToString();
+                ProductList.productAmount = da.GetValue(5).ToString();
+                ProductList.productStatus = da.GetValue(6).ToString();
             }
             con.Close();
         }
@@ -159,6 +160,12 @@ namespace DatabaseApp
         {
             LoadProduct(txtTitle3.Text);
             ButtonPress();
+        }
+
+        private void btnEnter_Click(object sender, RoutedEventArgs e)
+        {
+            new ProductList().Show();
+            this.Close();
         }
     }
 }

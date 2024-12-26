@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseApp.Data.DataModels;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
@@ -25,8 +26,7 @@ namespace DatabaseApp
         {
             InitializeComponent();
             Owner = ParrentWindow;
-            string user = Login.passText;
-            txtName.Text = $"Change password for {user}";
+            txtName.Text = $"Change password for {Login.passText}";
         }
         SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
 

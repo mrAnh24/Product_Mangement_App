@@ -24,6 +24,7 @@ using Z.Dapper.Plus;
 using Application = Microsoft.Office.Interop.Excel.Application;
 using DocumentFormat.OpenXml.Office2010.ExcelAc;
 using System.Globalization;
+using System.Security.RightsManagement;
 
 namespace DatabaseApp
 {
@@ -37,7 +38,8 @@ namespace DatabaseApp
         public static string type;
         public static string time;
         public static string query;
-        public static string tableName;
+        public static string tableName;      
+
         public Account()
         {
             InitializeComponent();
@@ -126,6 +128,12 @@ namespace DatabaseApp
             con.Close();
         }
 
+        void Refresh()
+        {
+            new Account().Show();
+            this.Close();
+        }
+
         public void DeleteAccount()
         {
             query = ($"DELETE FROM {tableName} WHERE Username = @Username");
@@ -137,8 +145,7 @@ namespace DatabaseApp
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
-            new Account().Show();
-            this.Close();
+            Refresh();
         }
 
         //Update account
@@ -149,6 +156,7 @@ namespace DatabaseApp
             Opacity = 0.2;
             accountUpdate.ShowDialog();
             Opacity = 1;
+            Refresh();
         }
 
         //Delete account
@@ -181,6 +189,21 @@ namespace DatabaseApp
             //new PasswordConfirmation().Show();
             passwordConfirmation.ShowDialog();
             Opacity = 1;
+            Refresh();
+        }
+
+        //Redirect to personal list
+        private void btnList_Click(object sender, RoutedEventArgs e)
+        {
+            new ProductListUser().Show();
+            this.Close();
+        }
+
+        //Redirect to list history
+        private void btnHistory_Click(object sender, RoutedEventArgs e)
+        {
+            new AccountOrder().Show();
+            this.Close();
         }
 
         private void btnLinked_Click(object sender, RoutedEventArgs e)
@@ -189,6 +212,7 @@ namespace DatabaseApp
             Opacity = 0.2;
             accountLinkedUpdate.ShowDialog();
             Opacity = 1;
+            Refresh();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)

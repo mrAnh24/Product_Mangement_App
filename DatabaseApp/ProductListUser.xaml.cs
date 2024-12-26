@@ -201,6 +201,7 @@ namespace DatabaseApp
                     Opacity = 0.2;
                     productListUserAmount.ShowDialog();
                     Opacity = 1;
+                    Refresh();
                 }
             }
             else
@@ -280,6 +281,12 @@ namespace DatabaseApp
                 total = 0;
                 Refresh();
             }
+        }
+
+        private void btnAccount_Click(object sender, RoutedEventArgs e)
+        {
+            new Account().Show();
+            this.Close();
         }
 
         private void btnRefresh_Click(object sender, RoutedEventArgs e)

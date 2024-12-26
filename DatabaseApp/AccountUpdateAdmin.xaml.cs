@@ -29,6 +29,13 @@ namespace DatabaseApp
         public event Action<AccountUpdateAdmin> NextAccount;
         public event Action<AccountUpdateAdmin> PreviousAccount;
 
+        //--Account--/
+        public string a2;
+        public string a5;
+        public string a6;
+        public string a7;
+        //--Account--/
+
         SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
         public AccountUpdateAdmin(Window parentWindow)
         {
@@ -64,11 +71,11 @@ namespace DatabaseApp
             SqlDataReader da = cmd.ExecuteReader();
             while (da.Read())
             {
-                tbUsername.Text = da.GetValue(2).ToString();
+                tbUsername.Text = a2 = da.GetValue(2).ToString();
                 tbEmail.Text = da.GetValue(3).ToString();
-                cbRole.Text = da.GetValue(5).ToString();
-                tbPhoneNumber.Text = da.GetValue(6).ToString();
-                cbGender.Text = da.GetValue(7).ToString();
+                cbRole.Text = a5 = da.GetValue(5).ToString();
+                tbPhoneNumber.Text = a6 = da.GetValue(6).ToString();
+                cbGender.Text = a7 = da.GetValue(7).ToString();
             }
             con.Close();
         }
@@ -98,19 +105,33 @@ namespace DatabaseApp
             if (cbRole.Text == "" || tbPhoneNumber.Text == "" || cbGender.Text == "" )
             {
                 System.Windows.MessageBox.Show("All fields need to be fill!", "Error", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
+                con.Close();
             }
             else
             {
-                cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
-                cmd.Parameters.AddWithValue("@Role", cbRole.Text);
-                cmd.Parameters.AddWithValue("@PhoneNumbers", tbPhoneNumber.Text);
-                cmd.Parameters.AddWithValue("@Gender", cbGender.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
+                if (tbUsername.Text == a2 && cbRole.Text == a5 && tbPhoneNumber.Text == a6 && cbGender.Text == a7)
+                {
+                    System.Windows.MessageBox.Show("No change was made", "Notification");
+                    this.Close();
+                }
+                else
+                {
+                    var result = System.Windows.MessageBox.Show($"Change the account information?", "Notification", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+                        cmd.Parameters.AddWithValue("@Role", cbRole.Text);
+                        cmd.Parameters.AddWithValue("@PhoneNumbers", tbPhoneNumber.Text);
+                        cmd.Parameters.AddWithValue("@Gender", cbGender.Text);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
 
-                ActivityLog();
-                System.Windows.MessageBox.Show("Reload for the change to take action!", "User account updated", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Information);
-                this.Close();
+                        ActivityLog();
+                        System.Windows.MessageBox.Show("Account information updated", "Notification", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Information);
+                        this.Close();
+                    }
+                    con.Close();
+                }
             }
         }
 

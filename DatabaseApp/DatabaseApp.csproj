@@ -427,8 +427,10 @@
     <Compile Include="Data\DataModels\CustomerList.cs" />
     <Compile Include="Data\DataModels\CustomerListFinal.cs" />
     <Compile Include="Data\DataModels\CustomerOrder.cs" />
+    <Compile Include="Data\DataModels\ProductList.cs" />
     <Compile Include="Data\ProductDb.cs" />
     <Compile Include="Data\CustomerListDb.cs" />
+    <Compile Include="Data\ProductListDb.cs" />
     <Compile Include="dbdemoDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -458,6 +460,15 @@
     </Compile>
     <Compile Include="OrderDetail.xaml.cs">
       <DependentUpon>OrderDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderManagement.xaml.cs">
+      <DependentUpon>OrderManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderManagementDetail.xaml.cs">
+      <DependentUpon>OrderManagementDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OrderManagementUpdate.xaml.cs">
+      <DependentUpon>OrderManagementUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="OrderProductDetail.xaml.cs">
       <DependentUpon>OrderProductDetail.xaml</DependentUpon>
@@ -495,6 +506,9 @@
     </Compile>
     <Compile Include="UpdateData.xaml.cs">
       <DependentUpon>UpdateData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UpdateProductAdd.xaml.cs">
+      <DependentUpon>UpdateProductAdd.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\UserControls\ClearTextBox.xaml.cs">
       <DependentUpon>ClearTextBox.xaml</DependentUpon>
@@ -592,6 +606,18 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="OrderManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderManagementDetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OrderManagementUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="OrderProductDetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -649,6 +675,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UpdateProductAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

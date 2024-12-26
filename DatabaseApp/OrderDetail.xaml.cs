@@ -33,6 +33,21 @@ namespace DatabaseApp
         public string stage;
         public int x;
 
+        //--temp--//
+        public string c5;
+        public string c6;
+        public string c7;
+        public string c8;
+        public string c9;
+        public string c10;
+        public string c11;
+        public string c12;
+        public string c13;
+        public string c14;
+        public string c15;
+        public string c16;
+        //--temp--//
+
         public OrderDetail(System.Windows.Window parentWindow)
         {
             Owner = parentWindow; 
@@ -57,20 +72,20 @@ namespace DatabaseApp
             while (da.Read())
             {
                 txtCustomerID.Text = da.GetValue(1).ToString();
-                txtInputName.Text = da.GetValue(5).ToString();
-                txtTitle.Text = da.GetValue(7).ToString();
-                cbGender.Text = da.GetValue(6).ToString();
-                txtCompany.Text = da.GetValue(8).ToString();
+                txtInputName.Text = c5 = da.GetValue(5).ToString();
+                cbGender.Text = c6 = da.GetValue(6).ToString();
+                txtTitle.Text = c7 = da.GetValue(7).ToString();
+                txtCompany.Text = c8 = da.GetValue(8).ToString();
 
-                txtAddress.Text = da.GetValue(9).ToString();
-                txtCity.Text = da.GetValue(10).ToString();
-                txtRegion.Text = da.GetValue(11).ToString();
-                txtPostalCode.Text = da.GetValue(12).ToString();
-                txtCountry.Text = da.GetValue(13).ToString();
+                txtAddress.Text = c9 = da.GetValue(9).ToString();
+                txtCity.Text = c10 = da.GetValue(10).ToString();
+                txtRegion.Text = c11 = da.GetValue(11).ToString();
+                txtPostalCode.Text = c12 = da.GetValue(12).ToString();
+                txtCountry.Text = c13 = da.GetValue(13).ToString();
 
-                txtPhoneNumber.Text = da.GetValue(14).ToString();
-                txtFaxNumber.Text = da.GetValue(15).ToString();               
-                cbPaymentMethod.Text = da.GetValue(16).ToString();
+                txtPhoneNumber.Text = c14 = da.GetValue(14).ToString();
+                txtFaxNumber.Text = c15 = da.GetValue(15).ToString();               
+                cbPaymentMethod.Text = c16 = da.GetValue(16).ToString();
                 txtCouponCode.Text = da.GetValue(18).ToString();
                 status = da.GetValue(19).ToString();
 
@@ -79,11 +94,11 @@ namespace DatabaseApp
             }
             con.Close();
 
+            btnEdit.IsEnabled = false;
+            btnEdit.Foreground = Brushes.Black;
             if (status == "Order cancel")
             {
                 txtOrderStatus.Text = "  🚫  ";
-                btnEdit.IsEnabled = false;
-                btnEdit.Content = Brushes.Black;
             }
             else if (status == "Payment complete")
             {
@@ -92,7 +107,81 @@ namespace DatabaseApp
             else
             {
                 txtOrderStatus.Text = "  💸❌  ";
+                btnEdit.IsEnabled = true;
+                btnEdit.Foreground = Brushes.WhiteSmoke;
             }
+        }
+
+        private void cbGender_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (cbGender.SelectedIndex.ToString())
+            {
+                case "0":
+                    cbGender.Text = "Male";
+                    break;
+                case "1":
+                    cbGender.Text = "Female";
+                    break;
+                case "2":
+                    cbGender.Text = "Unknown";
+                    break;
+            }
+        }
+
+        private void txtRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (txtRegion.SelectedIndex.ToString())
+            {
+                case "0":
+                    txtRegion.Text = "North";
+                    break;
+                case "1":
+                    txtRegion.Text = "East";
+                    break;
+                case "2":
+                    txtRegion.Text = "Middle";
+                    break;
+                case "3":
+                    txtRegion.Text = "West";
+                    break;
+                case "4":
+                    txtRegion.Text = "South";
+                    break;
+            }
+        }
+
+        private void cbPaymentMethod_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (cbPaymentMethod.SelectedIndex.ToString())
+            {
+                case "0":
+                    cbPaymentMethod.Text = "Bank account";
+                    break;
+                case "1":
+                    cbPaymentMethod.Text = "E-wallet";
+                    break;
+                case "2":
+                    cbPaymentMethod.Text = "COD";
+                    break;
+            }
+        }
+
+        void ReadOnly()
+        {
+            txtInputName.IsEnabled = false;
+            cbGender.IsEnabled = false;
+            txtTitle.IsEnabled = false;
+            txtCompany.IsEnabled = false;
+
+            txtCountry.IsEnabled = false;
+            txtRegion.IsEnabled = false;
+            txtCity.IsEnabled = false;
+            txtAddress.IsEnabled = false;
+            txtPostalCode.IsEnabled = false;
+
+            txtPhoneNumber.IsEnabled = false;
+            txtFaxNumber.IsEnabled = false;
+            cbPaymentMethod.IsEnabled = false;
         }
 
         void UpdateOrder()
@@ -212,27 +301,26 @@ namespace DatabaseApp
             }
             else
             {
-                var result = System.Windows.MessageBox.Show($"Change the order {AccountOrder.index} information?", "Notification", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
-                if (result == MessageBoxResult.Yes)
+                if (txtInputName.Text == c5 && cbGender.Text == c6 && txtTitle.Text == c7 && txtCompany.Text == c8 
+                    && txtAddress.Text == c9 && txtCity.Text == c10 && txtRegion.Text == c11 && txtPostalCode.Text == c12 
+                    && txtCountry.Text == c13 && txtPhoneNumber.Text == c14 && txtFaxNumber.Text == c15 
+                    && cbPaymentMethod.Text == c16)
                 {
-                    UpdateOrder();
+                    System.Windows.MessageBox.Show("No change was made", "Notify");
+                    ReadOnly();
                     btnEdit.Content = "Edit";
-
-                    txtInputName.IsEnabled = false;
-                    cbGender.IsEnabled = false;
-                    txtTitle.IsEnabled = false;
-                    txtCompany.IsEnabled = false;
-
-                    txtCountry.IsEnabled = false;
-                    txtRegion.IsEnabled = false;
-                    txtCity.IsEnabled = false;
-                    txtAddress.IsEnabled = false;
-                    txtPostalCode.IsEnabled = false;
-
-                    txtPhoneNumber.IsEnabled = false;
-                    txtFaxNumber.IsEnabled = false;
-                    cbPaymentMethod.IsEnabled = false;
                     x = 1;
+                }
+                else
+                {
+                    var result = System.Windows.MessageBox.Show($"Change the order {AccountOrder.index} information?", "Notification", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        UpdateOrder();
+                        x = 1;
+                        System.Windows.MessageBox.Show("Order information change", "Notification");
+                        this.Close();
+                    }
                 }
             }
         }
@@ -247,8 +335,9 @@ namespace DatabaseApp
         {
             string currentdatetime = DateTime.Now.ToString("yyyyMMddHHmmss");
             string LogFolder = @"D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\Logs";
-            string queryString = "SELECT * FROM CustomerListFinal WHERE InputName = @InputName AND CreatedDate = @CreatedDate";
-            string filePath = $@"D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\Logs\Receipts\{AccountOrder.index}_{txtInputName.Text} Order.XLSX";
+            string queryString = "SELECT * FROM Customer WHERE CustomerID = @CustomerID";
+            string filePath = $@"D:\TDA_intern\Projects\DatabaseApp\Product_Mangement_App-master\Logs\Receipts\ Order {AccountOrder.index}_{txtInputName.Text} information.XLSX";
+            action = $"Order {AccountOrder.index} customer informations printed";
 
             var result = System.Windows.MessageBox.Show("Print the receipt?", "Notification", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
             if(result == MessageBoxResult.Yes)
@@ -263,8 +352,7 @@ namespace DatabaseApp
                         connection.Open();
                         using (SqlCommand command = new SqlCommand(queryString, connection))
                         {
-                            command.Parameters.AddWithValue("InputName", AccountOrder.currentInputName);
-                            command.Parameters.AddWithValue("CreatedDate", AccountOrder.currentDate);
+                            command.Parameters.AddWithValue("CustomerID", AccountOrder.index);
                             using (SqlDataReader reader = command.ExecuteReader())
                             {
                                 //Create new Excel application and workbook
@@ -295,7 +383,7 @@ namespace DatabaseApp
                                         excelWorksheet.Cells[row, col].EntireColumn.AutoFit();
                                         excelWorksheet.Cells[row, col].HorizontalAlignment = XlHAlign.xlHAlignLeft;
                                         excelWorksheet.Cells[row, col].Borders.LineStyle = 1;
-                                        excelWorksheet.Columns["E"].NumberFormat = "yyyy-MM-dd HH:mm:ss";
+                                        excelWorksheet.Columns["Q"].NumberFormat = "yyyy-MM-dd HH:mm:ss";
                                         col++;
                                     }
                                     row++;
@@ -306,6 +394,7 @@ namespace DatabaseApp
                                 excelWorkbook.Close();
                                 excelApp.Quit();
 
+                                ActivityLog();
                                 System.Windows.MessageBox.Show("Receipt printed");
                             }
                         }

@@ -28,26 +28,28 @@
             <Grid Grid.Row="0">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
-                    <ColumnDefinition Width="0.2*"/>
+                    <ColumnDefinition Width="0.3*"/>
                 </Grid.ColumnDefinitions>
                 
                 <Grid Grid.Column="0">
                     <TextBox Name="tbSearchBox" VerticalAlignment="Center" Height="25"/>
-                    <Button Name="btnSearchClear" Width="130" HorizontalAlignment="Right" Content="X"
+                    <Button Name="btnSearchClear" Width="80" HorizontalAlignment="Right" Content="X"
                             Background="LightGray" Foreground="Transparent" BorderThickness="0"
                             Click="btnSearchClear_Click" Margin="3"/>
                     <ComboBox Name="cbSearch" HorizontalAlignment="Right" Foreground="Black"
-                              Width="auto">
-                        <ComboBoxItem Content="Product name"/>
-                        <ComboBoxItem Content="Product code"/>
-                        <ComboBoxItem Content="Product price"/>
-                        <ComboBoxItem Content="Product amount"/>
+                              Width="auto" SelectionChanged="cbSearch_SelectionChanged" IsEditable="False">
+                        <ComboBoxItem Content="Name"/>
+                        <ComboBoxItem Content="Code"/>
+                        <ComboBoxItem Content="Amount"/>
                     </ComboBox>
                 </Grid>
 
                 <Grid Grid.Column="1">
-                    <Button Name="btnSearch" HorizontalAlignment="Right" Content="Search"
+                    <Button Name="btnSearch" HorizontalAlignment="Left" Content="Search"
                             Cursor="Hand" Click="btnSearch_Click"/>
+                    <Button Name="btnRefresh" HorizontalAlignment="Right" Content="🔄"
+                            Cursor="Hand" Click="btnRefresh_Click"  Background="Transparent"
+                             Width="auto" Height="auto" FontSize="22" Margin="0,-3,-3,0"/>
                 </Grid>
             </Grid>
             

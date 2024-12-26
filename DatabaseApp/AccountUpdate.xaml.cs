@@ -10,6 +10,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Documents;
+using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -25,11 +26,18 @@ namespace DatabaseApp
         public static string query;
         public static string tableName;
 
+        //--Account--/
+        public string a2;
+        public string a3;
+        public string a6;
+        public string a7;
+        //--Account--/
+
         public AccountUpdate(Window parentWindow)
         {
             Owner = parentWindow;
             InitializeComponent();
-            lbUpdate.Content = $"Update {Login.passText} information";
+            lbUpdate.Content = $"{Login.passText} information";
 
             con.Open();
             tbUsername.Text = Login.passText;
@@ -38,11 +46,11 @@ namespace DatabaseApp
             SqlDataReader da = cmd.ExecuteReader();
             while (da.Read())
             {
-                tbUsername.Text = da.GetValue(2).ToString();
-                tbEmail.Text = da.GetValue(3).ToString();
+                tbUsername.Text = a2 = da.GetValue(2).ToString();
+                tbEmail.Text = a3 = da.GetValue(3).ToString();
                 tbRole.Text = da.GetValue(5).ToString();
-                tbPhoneNumber.Text = da.GetValue(6).ToString();
-                cbGender.Text = da.GetValue(7).ToString();
+                tbPhoneNumber.Text = a6 = da.GetValue(6).ToString();
+                cbGender.Text = a7 = da.GetValue(7).ToString();
             }
             if (tbUsername.Text == "admin")
             {
@@ -81,43 +89,55 @@ namespace DatabaseApp
         {
             if (tbEmail.Text == "" || tbUsername.Text == "")
             {
-                MessageBox.Show("Email and Username field can not be blank","Error");
+                System.Windows.MessageBox.Show("Email and Username field can not be blank","Error");
             }
             else
             {
-                con.Open();
-                SqlCommand cmd = new SqlCommand("Update AccountTest Set Username = @Username, Email = @Email, Role = @Role, PhoneNumbers = @PhoneNumbers, Gender = @Gender Where AccountID = @AccountID", con);
-                cmd.Parameters.AddWithValue("@AccountID", Login.GetID);
-                cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
-                cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
-                cmd.Parameters.AddWithValue("@Role", tbRole.Text);
-                cmd.Parameters.AddWithValue("@PhoneNumbers", tbPhoneNumber.Text);
-                cmd.Parameters.AddWithValue("@Gender", cbGender.Text);
-                cmd.ExecuteNonQuery();
-                con.Close();
-
-                ActivityLog();
-
-                if(tbUsername.Text != Login.passText)
+                if(tbUsername.Text == a2 && tbEmail.Text == a3 && tbPhoneNumber.Text == a6 && cbGender.Text == a7 )
                 {
-                    con.Open();
-                    string currentdatetime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
-                    string query = "INSERT INTO ActivityLog VALUES ('" + Login.GetID + "','" + Login.passText + "','" + Login.GetRole + "','" + $"Account name changed to {tbUsername.Text}" + "', '" + "Account modified" + "', '" + currentdatetime + "')"; ;
-                    cmd = new SqlCommand(query, con);
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-
-                    tableName = "AccountLinked";
-                    NameChange();
-
-                    tableName = "CustomerList";
-                    NameChange();
-
-                    Login.passText = tbUsername.Text;
+                    System.Windows.MessageBox.Show("No change was made", "Notification");
+                    this.Close();
                 }
-                else { }
-                MessageBox.Show("Account information updated", "Success");
-                this.Close();
+                else
+                {
+                    var result = System.Windows.MessageBox.Show($"Change the account information?", "Notification", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        con.Open();
+                        SqlCommand cmd = new SqlCommand("Update AccountTest Set Username = @Username, Email = @Email, Role = @Role, PhoneNumbers = @PhoneNumbers, Gender = @Gender Where AccountID = @AccountID", con);
+                        cmd.Parameters.AddWithValue("@AccountID", Login.GetID);
+                        cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
+                        cmd.Parameters.AddWithValue("@Username", tbUsername.Text);
+                        cmd.Parameters.AddWithValue("@Role", tbRole.Text);
+                        cmd.Parameters.AddWithValue("@PhoneNumbers", tbPhoneNumber.Text);
+                        cmd.Parameters.AddWithValue("@Gender", cbGender.Text);
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+
+                        ActivityLog();
+
+                        if (tbUsername.Text != Login.passText)
+                        {
+                            con.Open();
+                            string currentdatetime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
+                            string query = "INSERT INTO ActivityLog VALUES ('" + Login.GetID + "','" + Login.passText + "','" + Login.GetRole + "','" + $"Account name changed to {tbUsername.Text}" + "', '" + "Account modified" + "', '" + currentdatetime + "')"; ;
+                            cmd = new SqlCommand(query, con);
+                            cmd.ExecuteNonQuery();
+                            con.Close();
+
+                            tableName = "AccountLinked";
+                            NameChange();
+
+                            tableName = "CustomerList";
+                            NameChange();
+
+                            Login.passText = tbUsername.Text;
+                        }
+                        else { }
+                        System.Windows.MessageBox.Show("Account information updated", "Success");
+                        this.Close();
+                    }                  
+                }
             }
             con.Close();
         }

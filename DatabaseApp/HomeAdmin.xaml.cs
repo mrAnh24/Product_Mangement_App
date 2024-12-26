@@ -131,8 +131,15 @@ namespace DatabaseApp
 
         private void btnAccountManagement_Click(object sender, RoutedEventArgs e)
         {
-            new AccountManagement().Show();
-            this.Close();
+            if (Login.passText == "admin")
+            {
+                new AccountManagement().Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Permission denied", "Error");
+            }
         }
 
         private void btnAccountRequest_Click(object sender, RoutedEventArgs e)
@@ -151,6 +158,11 @@ namespace DatabaseApp
         {
             new InvoiceManagement().Show();
             this.Close();
+        }
+
+        private void btnInvoiceProducts_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

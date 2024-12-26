@@ -109,6 +109,44 @@ namespace DatabaseApp
             con.Close();
         }
 
+        private void cbGender_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (cbGender.SelectedIndex.ToString())
+            {
+                case "0":
+                    cbGender.Text = "Male";
+                    break;
+                case "1":
+                    cbGender.Text = "Female";
+                    break;
+                case "2":
+                    cbGender.Text = "Unknown";
+                    break;
+            }
+        }
+
+        private void tbRegion_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            switch (tbRegion.SelectedIndex.ToString())
+            {
+                case "0":
+                    tbRegion.Text = "North";
+                    break;
+                case "1":
+                    tbRegion.Text = "East";
+                    break;
+                case "2":
+                    tbRegion.Text = "Middle";
+                    break;
+                case "3":
+                    tbRegion.Text = "West";
+                    break;
+                case "4":
+                    tbRegion.Text = "South";
+                    break;
+            }
+        }
+
         private void HlBack_Click(object sender, RoutedEventArgs e)
         {
             var result = System.Windows.MessageBox.Show("Your current products list will be deleted, continue?", "Warning", (MessageBoxButton)MessageBoxButtons.YesNo, (MessageBoxImage)MessageBoxIcon.Warning);

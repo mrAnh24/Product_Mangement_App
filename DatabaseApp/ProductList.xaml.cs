@@ -28,7 +28,7 @@ namespace DatabaseApp
     public partial class ProductList : Window
     {
         //ProductList lists
-        List<Products> products = new List<Products>();       
+        List<ProductLists> products = new List<ProductLists>();       
         public static List<double> finalAmount = new List<double>(); //totals price
         public static List<double> finalNumber = new List<double>(); //totals number of products
 
@@ -36,7 +36,6 @@ namespace DatabaseApp
         public static string index; //placeholder for productCode
         public static int count; // total number of products in grid
         public static int selectedIndex;
-        public static string detail;
         public static double totals; //price
         public static double amounts; //number of products
         public static string placeholder; // temp for a for product
@@ -45,24 +44,28 @@ namespace DatabaseApp
         public static string query;
         public static string currentdatetime = System.DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-        //Home values
-        public static string homeName = "";
-        public static string homeCode = "";
-        public static string homeDescription = "";
-        public static string homePrice = "";
+        //Product List col
+        public static string productID;
+        public static string productName;
+        public static string productDescription;
+        public static string productType;
+        public static string productPrice;
+        public static string productAmount;
+        public static string productStatus;
+        public static string ProductCreator;
 
         public ProductList()
         {
             InitializeComponent();
             GetProducts();
             //LoadGrid();
+            txtProduct.Content = productName;
+            txtPrice.Content = productPrice;
+            txtAmount.Content = productAmount;
+            txtStatus.Content = productStatus;
+
             count = dgProduct.Items.Count;
             selectedIndex = dgProduct.SelectedIndex;
-
-            txtProduct.Content = homeName;
-            txtProductCode.Content = homeCode;
-            txtDescription.Content = homeDescription;
-            txtPrice.Content = homePrice;
         }
         DataTableCollection tableCollection;
         SqlConnection con = new SqlConnection("Server=.;Database=dbdemo;Trusted_Connection=SSPI;MultipleActiveResultSets=true;TrustServerCertificate=true");
@@ -70,8 +73,8 @@ namespace DatabaseApp
         //Load products
         void GetProducts()
         {
-            var db = new ProductDb();
-            products = db.Products.ToList();
+            var db = new ProductListDb();
+            products = db.ProductLists.ToList();
             dgProduct.ItemsSource = products;
             txtTotal.Text = $"Number of products: {dgProduct.Items.Count}";
         }
@@ -79,7 +82,7 @@ namespace DatabaseApp
         //Load products (for search only)
         public void LoadGrid()
         {
-            SqlCommand cmd = new SqlCommand("Select * from Products", con);
+            SqlCommand cmd = new SqlCommand("Select * from ProductLists", con);
             DataTable dt = new DataTable();
             con.Open();
             SqlDataReader sdr = cmd.ExecuteReader();
@@ -109,35 +112,70 @@ namespace DatabaseApp
             con.Close();
         }
 
-        //Choose a row
-        private void DataGridRow_Selected(object sender, RoutedEventArgs e)
+        void ReadProductList()
         {
-            var row = sender as DataGridRow;
-            var select = row.DataContext as Products;
-            index = select.ProductCode;
-
             con.Open();
-            SqlCommand cmd = new SqlCommand("Select * from Products where ProductCode = @ProductCode", con);
+            SqlCommand cmd = new SqlCommand("Select * from ProductLists where ProductCode = @ProductCode", con);
             cmd.Parameters.AddWithValue("@ProductCode", index);
             SqlDataReader da = cmd.ExecuteReader();
             while (da.Read())
             {
-                txtProduct.Content = da.GetValue(0).ToString();
-                txtProductCode.Content = da.GetValue(1).ToString();
-                txtDescription.Content = da.GetValue(2).ToString();
-                txtPrice.Content = da.GetValue(3).ToString();
-                detail = txtProduct.Content.ToString();
+                productID = da.GetValue(0).ToString();
+                txtProduct.Content = productName = da.GetValue(1).ToString();
+                productDescription = da.GetValue(2).ToString();
+                productType = da.GetValue(3).ToString();
+                txtPrice.Content = productPrice = da.GetValue(4).ToString();
+                txtAmount.Content = productAmount = da.GetValue(5).ToString();
+                txtStatus.Content = productStatus = da.GetValue(6).ToString();
+                ProductCreator = da.GetValue(7).ToString();
             }
             con.Close();
+        }
+
+        void ComboBoxDisable()
+        {
+            cbS1.Visibility = cbS2.Visibility = cbS3.Visibility = cbT1.Visibility
+            = cbT2.Visibility = cbT3.Visibility = cbT4.Visibility = cbT5.Visibility 
+            = cbT6.Visibility = cbT7.Visibility = cbT8.Visibility = Visibility.Collapsed;
+            cbStatus.Text = "";
+        }
+
+        void EmptyGrid()
+        {
+            if(dgProduct.Items.Count == 0)
+            {
+                txtNotify.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                txtNotify.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        //Choose a row
+        private void DataGridRow_Selected(object sender, RoutedEventArgs e)
+        {
+            var row = sender as DataGridRow;
+            var select = row.DataContext as ProductLists;
+            index = select.ProductCode;
+
+            ReadProductList();
         }
 
         //Show product detail
         private void btnDetail_Click(object sender, RoutedEventArgs e)
         {
-            Opacity = 0.2;
-            ProductDetail productDetail = new ProductDetail(this);
-            productDetail.ShowDialog();
-            Opacity = 1;
+            if (index == null)
+            {
+                System.Windows.MessageBox.Show("Choose a product first", "Error");
+            }
+            else
+            {
+                Opacity = 0.2;
+                ProductDetail productDetail = new ProductDetail(this);
+                productDetail.ShowDialog();
+                Opacity = 1;
+            }
         }
 
         //Add product to personal list
@@ -155,7 +193,7 @@ namespace DatabaseApp
             }
             else
             {
-                if (txtProduct.Content != "")
+                if (index != null)
                 {
                     if (tbNumber.Text == "")
                     {
@@ -171,17 +209,7 @@ namespace DatabaseApp
                         double mon = double.Parse(tbNumber.Text);
                         System.Windows.MessageBox.Show($"{mon} {txtProduct.Content} added to list", "Notify");
                         con.Open();
-                        SqlCommand cmd = new SqlCommand("Select * from Products where ProductCode = @ProductCode", con);
-                        cmd.Parameters.AddWithValue("@ProductCode", txtProduct.Content);
-                        SqlDataReader da = cmd.ExecuteReader();
-                        while (da.Read())
-                        {
-                            txtProduct.Content = da.GetValue(0).ToString();
-                            txtProductCode.Content = da.GetValue(1).ToString();
-                            txtDescription.Content = da.GetValue(2).ToString();
-                            txtPrice.Content = da.GetValue(3).ToString();
-                        }
-                        con.Close();
+                        ReadProductList();
 
                         //Get the total amount
                         double tue = double.Parse((string)txtPrice.Content);
@@ -192,12 +220,12 @@ namespace DatabaseApp
                         tbNumber.Text = "0";
 
                         con.Open();
-                        query = "INSERT INTO CustomerList VALUES ('" + Login.GetID + "','" + Login.passText + "','" + txtProduct.Content + "','" + txtProductCode.Content + "', '" + txtPrice.Content + "', '" + amounts + "', '" + currentdatetime + "')";
+                        query = "INSERT INTO CustomerList VALUES ('" + Login.GetID + "','" + Login.passText + "','" + txtProduct.Content + "','" + productID + "', '" + txtPrice.Content + "', '" + amounts + "', '" + currentdatetime + "')";
                         ProductAdd();
 
                         ReadProduct();
                         con.Open();
-                        query = $"INSERT INTO CustomerListFinal VALUES ('" + orderId + "','" + Login.GetID + "','" + Login.passText + "','" + null + "','" + txtProduct.Content + "','" + txtProductCode.Content + "', '" + txtPrice.Content + "', '" + amounts + "', '" + currentdatetime + "')";
+                        query = $"INSERT INTO CustomerListFinal VALUES ('" + orderId + "','" + Login.GetID + "','" + Login.passText + "','" + null + "','" + txtProduct.Content + "','" + productID + "', '" + txtPrice.Content + "', '" + amounts + "', '" + currentdatetime + "')";
                         ProductAdd();
 
                         ProductListUser.itemsCount += 1;
@@ -212,165 +240,154 @@ namespace DatabaseApp
 
         private void cbFilter_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            GetProducts();
+            ComboBoxDisable();
+            cbStatus.IsEnabled = false;
+            btnSearch.IsEnabled = true;
+            btnSearch.Foreground = Brushes.White;
+            tbSearch.IsEnabled = true;
             switch (cbFilter.SelectedIndex.ToString())
             {
                 case "0":
                     cbFilter.Text = "Name";
                     break;
                 case "1":
-                    cbFilter.Text = "Code";
+                    cbFilter.Text = "Type";
+                    cbStatus.IsEnabled = true;
+                    btnSearch.IsEnabled = false;
+                    btnSearch.Foreground = Brushes.Black;
+                    tbSearch.IsEnabled = false;
+                    cbT1.Visibility = cbT2.Visibility = cbT3.Visibility = cbT4.Visibility 
+                    = cbT5.Visibility = cbT6.Visibility = cbT7.Visibility = cbT8.Visibility = Visibility.Visible;
                     break;
                 case "2":
                     cbFilter.Text = "Price";
                     break;
+                case "3":
+                    cbFilter.Text = "Status";
+                    cbStatus.IsEnabled = true;
+                    btnSearch.IsEnabled = false;
+                    btnSearch.Foreground = Brushes.Black;
+                    tbSearch.IsEnabled = false;
+                    cbS1.Visibility = cbS2.Visibility = cbS3.Visibility = Visibility.Visible;
+                    break;
             }
+        }
+
+        private void cbStatus_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            GetProducts();
+            switch (cbStatus.SelectedIndex.ToString())
+            {
+                // Status
+                case "0":
+                    cbStatus.Text = "Available";
+                    products.RemoveAll(x => x.Status != "Available");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "1":
+                    cbStatus.Text = "Unavailable";
+                    products.RemoveAll(x => x.Status == "Available");
+                    products.RemoveAll(x => x.Status == "On sale");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "2":
+                    cbStatus.Text = "On sale";
+                    products.RemoveAll(x => x.Status != "On sale");
+                    cbStatus.IsEnabled = true;
+                    break;
+
+                //Type
+                case "3":
+                    cbStatus.Text = "Meat";
+                    products.RemoveAll(x => x.Type != "Meat");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "4":
+                    cbStatus.Text = "Dairy";
+                    products.RemoveAll(x => x.Type != "Dairy");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "5":
+                    cbStatus.Text = "Vegetable";
+                    products.RemoveAll(x => x.Type != "Vegetable");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "6":
+                    cbStatus.Text = "Drink";
+                    products.RemoveAll(x => x.Type != "Drink");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "7":
+                    cbStatus.Text = "Fruit";
+                    products.RemoveAll(x => x.Type != "Fruit");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "8":
+                    cbStatus.Text = "Dessert";
+                    products.RemoveAll(x => x.Type != "Dessert");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "9":
+                    cbStatus.Text = "Snack";
+                    products.RemoveAll(x => x.Type != "Snack");
+                    cbStatus.IsEnabled = true;
+                    break;
+                case "10":
+                    cbStatus.Text = "Other";
+                    products.RemoveAll(x => x.Type != "Other");
+                    cbStatus.IsEnabled = true;
+                    break;
+            }
+            EmptyGrid();
+            txtTotal.Text = $"Number of products: {dgProduct.Items.Count}";
         }
 
         //Search for a product
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            DataTable dt = new DataTable();
-            string type = "";
-            dgProduct.ItemsSource = dt.DefaultView;
-            LoadGrid();
             try
             {
-                DataView dv = dgProduct.ItemsSource as DataView;
-                if (dv != null)
+                if (tbSearch.Text == "")
                 {
-                    //dv.RowFilter = "Product LIKE '%" + tbSearch.Text + "%'";
-                    txtNotify1.Visibility = Visibility.Collapsed;
-                    txtNotify2.Visibility = Visibility.Collapsed;
-                    if (cbFilter.SelectedIndex == 0)
-                    {
-                        type = "Product";
-                        dv.RowFilter = $"{type} LIKE '%{tbSearch.Text}%'";
-                        if (dgProduct.Items.Count == 0)
-                        {
-                            System.Windows.MessageBox.Show("No items found", "Error");
-                            txtNotify1.Visibility = Visibility.Collapsed;
-                            txtNotify2.Visibility = Visibility.Visible;
-                        }
-                        else if (dgProduct.Items.Count > 1 && dgProduct.Items.Count != count)
-                        {
-                            System.Windows.MessageBox.Show("Multiple items found", "Information");
-                            txtNotify2.Visibility = Visibility.Collapsed;
-                            txtNotify1.Visibility = Visibility.Visible;
-                        }
-                        else if (tbSearch.Text == "" && dgProduct.Items.Count == count)
-                        {
-                            Clear();
-                            GetProducts();
-                        }
-                    }
-                    else if (cbFilter.SelectedIndex == 1)
-                    {
-                        type = "ProductCode";
-                        dv.RowFilter = $"{type} LIKE '%{tbSearch.Text}%'";
-                        if (dgProduct.Items.Count == 0)
-                        {
-                            System.Windows.MessageBox.Show("No items found", "Error");
-                            txtNotify1.Visibility = Visibility.Collapsed;
-                            txtNotify2.Visibility = Visibility.Visible;
-                        }
-                        else if (dgProduct.Items.Count > 1 && dgProduct.Items.Count != count)
-                        {
-                            System.Windows.MessageBox.Show("Multiple items found", "Information");
-                            txtNotify2.Visibility = Visibility.Collapsed;
-                            txtNotify1.Visibility = Visibility.Visible;
-                        }
-                        else if (tbSearch.Text == "" && dgProduct.Items.Count == count)
-                        {
-                            Clear();
-                            GetProducts();
-                        }
-                    }
-                    else if (cbFilter.SelectedIndex == 2)
-                    {
-                        type = "Price";
-                        dv.RowFilter = $"CONVERT({type}, System.String) LIKE '%{tbSearch.Text}%'";
-                        if (dgProduct.Items.Count == 0)
-                        {
-                            System.Windows.MessageBox.Show("No items found", "Error");
-                            txtNotify1.Visibility = Visibility.Collapsed;
-                            txtNotify2.Visibility = Visibility.Visible;
-                        }
-                        else if (dgProduct.Items.Count > 1 && dgProduct.Items.Count != count)
-                        {
-                            System.Windows.MessageBox.Show("Multiple items found", "Information");
-                            txtNotify2.Visibility = Visibility.Collapsed;
-                            txtNotify1.Visibility = Visibility.Visible;
-                        }
-                        else if (tbSearch.Text == "" && dgProduct.Items.Count == count)
-                        {
-                            Clear();
-                            GetProducts();
-                        }
-                    }
-                    else
-                    {
-                        Clear();
-                        System.Windows.MessageBox.Show("Select a filter", "Error");
-                    }
+                    System.Windows.MessageBox.Show("Search box blank", "Error");
+                    GetProducts();
                 }
                 else
                 {
-                    dt = new DataTable();
-                    dgProduct.ItemsSource = dt.DefaultView;
-                    GetProducts();
+                    if (cbFilter.SelectedIndex == 0)
+                    {
+                        GetProducts();
+                        products.RemoveAll(x => x.Product != tbSearch.Text);
+                        txtTotal.Text = $"Number of products: {dgProduct.Items.Count}";
+                    }
+                    else if (cbFilter.SelectedIndex == 2)
+                    {
+                        GetProducts();
+                        products.RemoveAll(x => x.Price.ToString() != tbSearch.Text);
+                        txtTotal.Text = $"Number of products: {dgProduct.Items.Count}";
+                    }
+                    else
+                    {
+                        System.Windows.MessageBox.Show("Choose a filter", "Error");
+                        GetProducts();
+                    }
                 }
             }
             catch (Exception ex)
             {
                 System.Windows.MessageBox.Show(ex.Message, "Message", (MessageBoxButton)MessageBoxButtons.OK, (MessageBoxImage)MessageBoxIcon.Error);
             }
-            txtTotal.Text = $"Number of products: {dgProduct.Items.Count}";
-
-            con.Open();
-            SqlCommand cmd = new SqlCommand();
-            switch (type)
-            {
-                case "Product":
-                    cmd = new SqlCommand("Select * from Products where Product = @Product", con);
-                    cmd.Parameters.AddWithValue("@Product", tbSearch.Text);
-                    break;
-                case "ProductCode":
-                    cmd = new SqlCommand("Select * from Products where ProductCode = @ProductCode", con);
-                    cmd.Parameters.AddWithValue("@ProductCode", tbSearch.Text);
-                    break;
-                case "Price":
-                    cmd = new SqlCommand("Select * from Products where Price = @Price", con);
-                    cmd.Parameters.AddWithValue("@Price", tbSearch.Text);
-                    break;
-                default:
-                    cmd = new SqlCommand("Select * from Products where Product = @Product", con);
-                    cmd.Parameters.AddWithValue("@Product", "");
-                    GetProducts();
-                    break;
-            }
-            //SqlCommand cmd = new SqlCommand("Select * from Products where Product = @Product", con);
-            //cmd.Parameters.AddWithValue("@Product", tbSearch.Text);
-
-            if (cbFilter.Items != null)
-            {
-                SqlDataReader da = cmd.ExecuteReader();
-                while (da.Read())
-                {
-                    txtProduct.Content = da.GetValue(0).ToString();
-                    txtProductCode.Content = da.GetValue(1).ToString();
-                    txtDescription.Content = da.GetValue(2).ToString();
-                    txtPrice.Content = da.GetValue(3).ToString();
-                }
-                con.Close();
-            }
+            EmptyGrid();
+            txtTotal.Text = $"Total accounts: {dgProduct.Items.Count}";
         }
 
         void Clear()
         {
             txtProduct.Content = "";
-            txtProductCode.Content = "";
-            txtDescription.Content = "";
             txtPrice.Content = "";
+            txtAmount.Content = "";
+            txtStatus.Content = "";
         }
 
         
@@ -418,6 +435,29 @@ namespace DatabaseApp
                 new ProductListUser().Show();
                 this.Close();
             }
+        }
+
+        void ShowResult()
+        {
+            dgProduct.Columns[0].Visibility = Visibility.Hidden;
+            dgProduct.Columns[1].Visibility = Visibility.Hidden;
+            dgProduct.Columns[3].Visibility = Visibility.Hidden;
+            dgProduct.Columns[4].Visibility = Visibility.Hidden;
+            dgProduct.Columns[5].Visibility = Visibility.Hidden;
+            dgProduct.Columns[6].Visibility = Visibility.Hidden;
+            dgProduct.Columns[7].Visibility = Visibility.Hidden;
+            dgProduct.Columns[8].Visibility = Visibility.Hidden;
+            dgProduct.Columns[9].Visibility = Visibility.Hidden;
+            dgProduct.Columns[10].Visibility = Visibility.Hidden;
+
+            dgProduct.Columns[2].Header = "Product";
+
+            //products.RemoveAll(x => x. != Login.GetID);
+        }
+
+        private void dgProduct_AutoGeneratedColumns(object sender, EventArgs e)
+        {
+            ShowResult();
         }
     }
 

@@ -135,6 +135,8 @@
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
                                     <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
+                                    <ColumnDefinition Width="auto"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Border Grid.Column="0" BorderThickness="0.5" BorderBrush="Black">
@@ -160,48 +162,62 @@
 
                                 <Border Grid.Column="3" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
                                     <Grid Grid.Column="3" Name="boxEditAccount">
-                                        <TextBlock Text="Edit account" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                        <TextBlock Text="Account" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>
                                 </Border>
 
                                 <Border Grid.Column="4" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
-                                    <Grid Grid.Column="4" Name="boxPermission">
-                                        <TextBlock Text="Permission" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                    <Grid Grid.Column="4" Name="boxAccountOrder">
+                                        <TextBlock Text="Order history" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>
                                 </Border>
 
                                 <Border Grid.Column="5" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
-                                    <Grid Grid.Column="5" Name="boxOpenExcelFile">
-                                        <TextBlock Text="Open Excel file" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                    <Grid Grid.Column="5" Name="boxPermission">
+                                        <TextBlock Text="Permission" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>
                                 </Border>
 
                                 <Border Grid.Column="6" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
-                                    <Grid Grid.Column="6" Name="boxUpdateProducts">
-                                        <TextBlock Text="Update products" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                    <Grid Grid.Column="6" Name="boxOpenExcelFile">
+                                        <TextBlock Text="Open CSV" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>
                                 </Border>
 
                                 <Border Grid.Column="7" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
-                                    <Grid Grid.Column="7" Name="boxCustomerData">
+                                    <Grid Grid.Column="7" Name="boxUpdateData">
                                         <TextBlock Text="Update data" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>
                                 </Border>
 
                                 <Border Grid.Column="8" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
-                                    <Grid Grid.Column="8" Name="boxAccountRequest">
-                                        <TextBlock Text="Account requests" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                    <Grid Grid.Column="8" Name="boxUpdateProducts">
+                                        <TextBlock Text="Update products" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>
                                 </Border>
 
                                 <Border Grid.Column="9" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
-                                    <Grid Grid.Column="9" Name="boxAccountManager">
+                                    <Grid Grid.Column="9" Name="boxAccountRequest">
+                                        <TextBlock Text="Account requests" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                                   VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Column="10" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
+                                    <Grid Grid.Column="10" Name="boxInvoiceManager">
+                                        <TextBlock Text="Invoice manager" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
+                                                   VerticalAlignment="Center"/>
+                                    </Grid>
+                                </Border>
+
+                                <Border Grid.Column="11" BorderThickness="0.5" BorderBrush="Black" Margin="-0.5,0,0,0">
+                                    <Grid Grid.Column="11" Name="boxAccountManager">
                                         <TextBlock Text="Account manager" Background="Transparent" TextWrapping="WrapWithOverflow" Margin="5"
                                                    VerticalAlignment="Center"/>
                                     </Grid>

@@ -33,9 +33,11 @@ namespace DatabaseApp.View.UserControls
         {
             InitializeComponent();
 
-            //Login.passText = "admin";//temporary
+            Login.passText = "admin";//temporary
+            Login.GetRole = "admin";//temporary
+            Login.GetID = "Acc00001";//temporary
+
             //Login.passText = "Guest account";//temporary
-            //Login.passText = "wGuys";//temporary
 
             string accountName = Login.passText;
             txtAccname.Text = accountName;
@@ -53,10 +55,10 @@ namespace DatabaseApp.View.UserControls
             //Assign role
             if (role !="admin")
             {
-                miInvoiceManagement.Visibility = Visibility.Collapsed;
-                mAdmin.Visibility = Visibility.Collapsed;
+                miDatabase.Visibility = Visibility.Collapsed;
                 if(role != "Lv4")
                 {
+                    mAdmin.Visibility = Visibility.Collapsed;
                     miRequest.Visibility = Visibility.Collapsed;
                     if (role != "Lv3")
                     {
@@ -219,6 +221,14 @@ namespace DatabaseApp.View.UserControls
             count++;
         }
 
+        // Order management
+        private void miOrderManagement_Click(object sender, RoutedEventArgs e)
+        {
+            new OrderManagement().Show();
+            Application.Current.Windows[0].Close();
+            count++;
+        }
+
         // Account requests management
         private void miRequest_Click(object sender, RoutedEventArgs e)
         {
@@ -233,6 +243,6 @@ namespace DatabaseApp.View.UserControls
             new AccountManagement().Show();
             Application.Current.Windows[0].Close();
             count++;
-        }
+        }       
     }
 }

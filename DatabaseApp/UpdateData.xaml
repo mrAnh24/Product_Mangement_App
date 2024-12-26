@@ -60,10 +60,11 @@
                         <ComboBoxItem Name="cbProduct" Content="Products"/>
                         <ComboBoxItem Name="cbCustomer" Content="Customer"/>
                         <ComboBoxItem Name="cbCustomerListFinal" Content="CustomerListFinal"/>
-                        <ComboBoxItem Name="cbSpecial" Content="⚠️Test zone:" IsEnabled="False"
+                        <ComboBoxItem Name="cbSpecial" Content="Main database:" IsEnabled="False"
                                       Background="Yellow" Foreground="Gray"/>
                         <ComboBoxItem Name="cbAccountTest" Content="AccountTest" Visibility="Collapsed"/>
                         <ComboBoxItem Name="cbAccountLinked" Content="AccountLinked" Visibility="Collapsed"/>
+                        <ComboBoxItem Name="cbProductList" Content="ProductList" Visibility="Collapsed"/>
                     </ComboBox>
                     <TextBox  Name="tbFile" Height="20" Margin="-8,0,-8,8" IsEnabled="False" Foreground="Black"/>
                     <ComboBox Name="cbSheet" Height="18" Margin="-8,0,0,0" IsTextSearchEnabled="False"

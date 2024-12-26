@@ -10,6 +10,8 @@
 - Receipt print. (v)
 - Order {ID} payment status change. (v)
 - Order {ID} information modified. (v)
+- Order {ID} customer informations printed. (v)
+- Order {ID} products receipt printed. (v)
 - Order {ID} canceled. (v)
 
 // Data modified: (No delete)
@@ -18,10 +20,10 @@
 - Account data modified. (v)
 - Product data modified. (v)
 
-// Update products:
-- Add product. (v)
-- Update product. (v)
-- Delete product. (v)
+// Products modified:
+- Add a new product. (v)
+- Update a product. (v)
+- Delete a product. (v)
 
 // Admin action:
 - Account created. (v)

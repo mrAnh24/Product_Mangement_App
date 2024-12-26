@@ -191,6 +191,7 @@ namespace DatabaseApp
                 Opacity = 0.2;
                 accountUpdate.ShowDialog();
                 Opacity = 1;
+                Refresh();
                 //this.Close();
             }
         }
@@ -237,6 +238,7 @@ namespace DatabaseApp
             Opacity = 0.2;
             accountAdd.ShowDialog();
             Opacity = 1;
+            Refresh();
             //this.Close();
         }
 

@@ -31,6 +31,7 @@ namespace DatabaseApp
         public static string index;
         public static string currentStatus;
         public static string currentInputName;
+        public static string currentBill;
         public static DateTime currentDate;
         public string status;
         public string action;
@@ -78,6 +79,7 @@ namespace DatabaseApp
 
             index = acc.CustomerID;
             currentInputName = acc.InputName;
+            currentBill = acc.Bill.ToString();
             currentDate = acc.CreatedDate;
         }
 
@@ -153,6 +155,12 @@ namespace DatabaseApp
             customers.RemoveAll(x => x.PaymentStatus != "Order cancel");
         }
 
+        private void btnAccount_Click(object sender, RoutedEventArgs e)
+        {
+            new Account().Show();
+            this.Close();
+        }
+
         private void btnRefresh_Click(object sender, RoutedEventArgs e)
         {
             Refresh();
@@ -170,7 +178,7 @@ namespace DatabaseApp
             }
             else
             {
-                System.Windows.MessageBox.Show("Select an invoice first", "Error");
+                System.Windows.MessageBox.Show("Select an order first", "Error");
             }
         }
 
@@ -186,17 +194,24 @@ namespace DatabaseApp
             }
             else
             {
-                System.Windows.MessageBox.Show("Select an invoice first", "Error");
+                System.Windows.MessageBox.Show("Select an order first", "Error");
             }
         }
 
         private void btnOderStatus_Click(object sender, RoutedEventArgs e)
         {
-            OrderStatus orderStatus = new OrderStatus(this);
-            Opacity = 0.2;
-            orderStatus.ShowDialog();
-            Opacity = 1;
-            Refresh();
+            if (index != null)
+            {
+                OrderStatus orderStatus = new OrderStatus(this);
+                Opacity = 0.2;
+                orderStatus.ShowDialog();
+                Opacity = 1;
+                Refresh();
+            }
+            else
+            {
+                System.Windows.MessageBox.Show("Select an order first", "Error");
+            }
         }
 
         private void btnCancelOder_Click(object sender, RoutedEventArgs e)
