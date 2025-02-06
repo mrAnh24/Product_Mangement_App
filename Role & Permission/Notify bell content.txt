@@ -1,0 +1,32 @@
+// Category:
+
+- Request:
++ Account upgrade request. (v)
++ New product request. (v)
++ Pre-Order product. 
+
+- Account news:
++ Request status.
++ Account info modified. (?)
++ Admin modified account info. (v)
++ Admin approve/Cancel request.
+
+- Product news:
++ Admin approve/Cancel order. (stage 1) (v)
++ Product deleted. (v)
++ Order status update. (v)
++ Pre-Order product condition.
++ New product added. (v)
++ Product information change. (v)
++ New product sale. (v)
+
+- Other:
++ A new chat started.
+
+// Notify dataTable
+AccountID, Username, Role, Details, Category, Status, TimeCreated
+
+- Add Piority to dataTable
++ Low : all (except Guest)
++ High : > lv1
+

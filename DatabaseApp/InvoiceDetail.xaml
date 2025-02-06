@@ -1,0 +1,167 @@
+﻿<Window x:Class="DatabaseApp.InvoiceDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseApp"
+        mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Closed="Window_Closed"
+        Title="AccountUpdate" Height="420" Width="460">
+    <Grid Background="SteelBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="56*"/>
+            <RowDefinition Height="280*"/>
+            <RowDefinition Height="42*"/>
+            <RowDefinition Height="19*"/>
+            <RowDefinition Height="23*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Name="txtHeader" Text="Invoice title" VerticalAlignment="Center" 
+                       HorizontalAlignment="Center" FontSize="24" FontWeight="SemiBold"
+                       Foreground="WhiteSmoke"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="5,0,0,0">
+                <StackPanel>
+                    <TextBlock Text="CustomerID" Margin="5,5,0,4"/>
+                    <TextBox Name="txtCustomerID" Margin="5,0,5,0"
+                             Height="20" IsEnabled="False"/>
+                    <TextBlock Text="AccountID" Margin="5,5,0,4"/>
+                    <TextBox Name="txtAccountID" Margin="5,0,5,0"
+                             Height="20" IsEnabled="False"/>
+                    <TextBlock Text="Username" Margin="5,5,0,4"/>
+                    <TextBox Name="txtUsername" Margin="5,0,5,0"
+                             Height="20" IsEnabled="False"/>
+                    <TextBlock Text="InputName" Margin="5,5,0,4"/>
+                    <TextBox Name="txtInputName" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="Role" Margin="5,5,0,4"/>
+                    <TextBox Name="txtRole" Margin="5,0,5,0" IsEnabled="False"
+                             Height="20"/>
+                    <TextBlock Text="Title" Margin="5,5,0,4"/>
+                    <TextBox Name="txtTitle" Margin="5,0,5,0"
+                             Height="20"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="5,0,5,0">
+                <StackPanel>
+                    <TextBlock Text="Gender" Margin="5,5,0,4"/>
+                    <ComboBox Name="txtGender" Margin="5,0,5,0" Width="auto"
+                              SelectionChanged="txtGender_SelectionChanged" 
+                              Foreground="Black" IsEditable="False" Height="20">
+                        <ComboBoxItem Content="Male"/>
+                        <ComboBoxItem Content="Female"/>
+                        <ComboBoxItem Content="Unknown"/>
+                    </ComboBox>
+                    <TextBlock Text="Company" Margin="5,5,0,4"/>
+                    <TextBox Name="txtCompany" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="Address" Margin="5,5,0,4"/>
+                    <TextBox Name="txtAddress" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="City" Margin="5,5,0,4"/>
+                    <TextBox Name="txtCity" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="Region" Margin="5,5,0,4"/>
+                    <ComboBox Name="txtRegion" Margin="5,0,5,0" Height="20"
+                              SelectionChanged="txtRegion_SelectionChanged"
+                              Width="auto" Foreground="Black" IsEditable="False">
+                        <ComboBoxItem Content="North"/>
+                        <ComboBoxItem Content="East"/>
+                        <ComboBoxItem Content="Middle"/>
+                        <ComboBoxItem Content="West"/>
+                        <ComboBoxItem Content="South"/>
+                    </ComboBox>
+                    <TextBlock Text="Country" Margin="5,5,0,4"/>
+                    <TextBox Name="txtCountry" Margin="5,0,5,0"
+                             Height="20"/>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="0,0,5,0">
+                <StackPanel>
+                    <TextBlock Text="Phone number" Margin="5,5,0,4"/>
+                    <TextBox Name="txtPhoneNumber" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="Fax number" Margin="5,5,0,4"/>
+                    <TextBox Name="txtFaxNumber" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="Postal code" Margin="5,5,0,4"/>
+                    <TextBox Name="txtPostalCode" Margin="5,0,5,0"
+                             Height="20"/>
+                    <TextBlock Text="PaymentMethod" Margin="5,5,0,4"/>
+                    <ComboBox Name="txtPaymentMethod" Margin="5,0,5,0" IsEditable="False"
+                              Width="auto" Height="20" Foreground="Black"
+                              SelectionChanged="txtPaymentMethod_SelectionChanged">
+                        <ComboBoxItem Content="Bank account"/>
+                        <ComboBoxItem Content="E-wallet"/>
+                        <ComboBoxItem Content="COD"/>
+                    </ComboBox>
+                    <TextBlock Text="CouponCode" Margin="5,5,0,4"/>
+                    <TextBox Name="txtCouponCode" Margin="5,0,5,0" IsEnabled="False"
+                             Height="20"/>
+                    <TextBlock Text="Bill" Margin="5,5,0,4"/>
+                    <TextBox Name="txtBill" Margin="5,0,5,0" IsEnabled="False"
+                             Height="20"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.4*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="10,10,0,10">
+                <TextBlock Text="Day created" HorizontalAlignment="Right" FontSize="16"/>
+            </Grid>
+            <Grid Grid.Column="1" Margin="10,10,0,10">
+                <TextBox  Name="txtDayCreated" Margin="0,0,0,0"
+                             Height="20" IsEnabled="False"/>
+            </Grid>
+            <Grid Grid.Column="2">
+                <TextBlock Name="txtPaymentStatus" Text="  💰  " FontSize="30" HorizontalAlignment="Center"/>
+            </Grid>
+        </Grid>
+
+        <Grid Grid.Row="3" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Button Name="btnConfirm" Content="Edit" Click="btnConfirm_Click"
+                        HorizontalAlignment="Right" Cursor="Hand"/>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="15,0,0,0">
+                <Button Name="btnPrint" Content="Print" Click="btnPrint_Click"
+                         Cursor="Hand"/>
+            </Grid>
+
+            <Grid Grid.Column="2" Margin="0,0,15,0">
+                <Button Name="btnCancel" Content="Cancel" Click="btnCancel_Click"
+                         Cursor="Hand"/>
+            </Grid>
+
+            <Grid Grid.Column="3">
+                <Button Name="btnBack" Content="Back" Click="btnBack_Click"
+                        HorizontalAlignment="Left" Cursor="Hand"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,406 @@
+﻿<Window x:Class="DatabaseApp.OrderManagementDetail"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseApp"
+        mc:Ignorable="d" WindowStyle="None" WindowStartupLocation="CenterOwner"
+        ResizeMode="NoResize" Closed="Window_Closed"
+        Title="AccountUpdate" Height="400" Width="460">
+    <Grid Background="SteelBlue">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.2*"/>
+            <RowDefinition/>
+            <RowDefinition Height="0.15*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <TextBlock Name="txtHeader" Text="Customer ... order detail" VerticalAlignment="Center" FontSize="26"
+                       HorizontalAlignment="Center" Foreground="WhiteSmoke"/>
+        </Grid>
+
+        <Grid Grid.Row="1">
+            <TabControl Margin="10,0,10,0" Background="WhiteSmoke">
+                <TabItem Header="Customer information">
+                    <Grid Margin="10,0,10,0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.4*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Margin="0,10,10,0">
+                                <StackPanel>
+                                    <TextBlock Text="CustomerID"/>
+                                    <TextBox Name="txtCustomerID" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Name"/>
+                                    <TextBox Name="txtName" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Gender"/>
+                                    <ComboBox Name="cbGender" Width="auto" Height="20" Foreground="Black" IsEnabled="False"
+                                              IsEditable="False" SelectionChanged="cbGender_SelectionChanged">
+                                        <ComboBoxItem Content="Male"/>
+                                        <ComboBoxItem Content="Female"/>
+                                        <ComboBoxItem Content="Unknown"/>
+                                    </ComboBox>
+                                    <TextBlock Text="Title"/>
+                                    <TextBox Name="txtTitle" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Company"/>
+                                    <TextBox Name="txtCompany" IsEnabled="False" Height="20"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="5,10,5,0">
+                                <StackPanel>
+                                    <TextBlock Text="Country"/>
+                                    <TextBox Name="txtCountry" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Region"/>
+                                    <ComboBox Name="txtRegion" Height="20" IsEnabled="False" Width="auto" 
+                                              Foreground="Black" IsEditable="False"
+                                              SelectionChanged="txtRegion_SelectionChanged">
+                                        <ComboBoxItem Content="North"/>
+                                        <ComboBoxItem Content="East"/>
+                                        <ComboBoxItem Content="Middle"/>
+                                        <ComboBoxItem Content="West"/>
+                                        <ComboBoxItem Content="South"/>
+                                    </ComboBox>
+                                    <TextBlock Text="City"/>
+                                    <TextBox Name="txtCity" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Address"/>
+                                    <TextBox Name="txtAddress" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Postal code"/>
+                                    <TextBox Name="txtPostalCode" IsEnabled="False" Height="20"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="2" Margin="10,10,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="Phone number"/>
+                                    <TextBox Name="txtPhoneNumber" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Fax number"/>
+                                    <TextBox Name="txtFaxNumber" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Payment method"/>
+                                    <ComboBox Name="cbPaymentMethod" Width="auto" Height="20" Foreground="Black"
+                                              IsEnabled="False" IsEditable="false"
+                                              SelectionChanged="cbPaymentMethod_SelectionChanged">
+                                        <ComboBoxItem Content="Bank account"/>
+                                        <ComboBoxItem Content="E-wallet"/>
+                                        <ComboBoxItem Content="COD"/>
+                                    </ComboBox>
+                                    <TextBlock Text="Coupon code"/>
+                                    <TextBox Name="txtCouponCode" IsEnabled="False" Height="20"/>
+                                    <TextBlock Text="Order status"/>
+                                    <TextBox Name="txtPaymentStatus" IsEnabled="False" Height="20"/>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Margin="0,0,10,0">
+                                <StackPanel>
+                                    <Button Name="btnEdit" Content="           Edit            " Margin="0,10,0,0"
+                                            Width="auto" HorizontalAlignment="Left" Click="btnEdit_Click" Cursor="Hand"/>
+                                    <Button Name="btnPrint" Content="           Print           " Margin="0,10,0,0"
+                                            Width="auto" HorizontalAlignment="Left" Click="btnPrint_Click" Cursor="Hand"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="5,0,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="Bill"/>
+                                    <TextBox Name="txtBill" Height="20" IsEnabled="False"/>
+                                    <TextBlock Text="Day created"/>
+                                    <TextBox Name="txtDate" Height="20" IsEnabled="False"/>
+                                </StackPanel>
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <TextBlock Name="txtOrderStatus" Text="😎" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" FontSize="40" Cursor="Help"
+                                           PreviewMouseLeftButtonDown="txtOrderStatus_PreviewMouseLeftButtonDown"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Order's Products">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.6*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0" Margin="5,0,0,5">
+                            <DataGrid Name="dgProduct" Grid.ColumnSpan="3" AlternatingRowBackground="LightGray" 
+                                      AlternationCount="2" IsReadOnly="True" SelectionMode="Single"
+                                      CanUserResizeRows="False" ScrollViewer.CanContentScroll="False"
+                                      AutoGeneratedColumns="dgProduct_AutoGeneratedColumns"  ColumnWidth="*"
+                                      HorizontalScrollBarVisibility="Disabled" Margin="0,5,5,0">
+                                <DataGrid.Resources>
+                                    <Style TargetType="DataGridRow">
+                                        <EventSetter Event="Selected" Handler="DataGridRow_Selected"/>
+                                    </Style>
+                                </DataGrid.Resources>
+                            </DataGrid>
+                        </Grid>
+
+                        <Grid Grid.Column="1" Margin="0,5,5,5" Background="black">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="0.4*"/>
+                                <RowDefinition/>
+                                <RowDefinition Height="0.3*"/>
+                            </Grid.RowDefinitions>
+
+                            <Grid Grid.Row="0">
+                                <Rectangle Fill="CornflowerBlue" Margin="0.5,0.5,0.5,0.5"/>
+                                <TextBlock Text="Product information" VerticalAlignment="Center"
+                                           HorizontalAlignment="Center" FontWeight="DemiBold"
+                                           FontSize="16"/>
+                            </Grid>
+
+                            <Grid Grid.Row="1" Background="WhiteSmoke" Margin="0.5,0,0.5,0.5">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition Height="0.2*"/>
+                                </Grid.RowDefinitions>
+
+                                <Grid Grid.Row="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="0.8*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Grid Grid.Column="0">
+                                        <StackPanel Margin="5,10,0,0">
+                                            <TextBlock Text="Product:" Margin="0,0,0,5"/>
+                                            <TextBlock Text="Product Code:" Margin="0,0,0,5"/>
+                                            <TextBlock Text="Price:" Margin="0,0,0,5"/>
+                                            <TextBlock Text="Type:" Margin="0,0,0,5"/>
+                                        </StackPanel>
+                                    </Grid>
+
+                                    <Grid Grid.Column="1">
+                                        <StackPanel Margin="0,10,0,0">
+                                            <TextBlock Name="txtProduct" Text="..." Margin="0,0,0,5"/>
+                                            <TextBlock Name="txtProductCode" Text="..." Margin="0,0,0,5"/>
+                                            <TextBlock Name="txtPrice" Text="..." Margin="0,0,0,5"/>
+                                            <TextBlock Name="txtType" Text="..." Margin="0,0,0,5"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Grid>
+
+                                <Grid Grid.Row="1"></Grid>
+                            </Grid>
+                            
+                            <Grid Grid.Row="2">
+                                <Rectangle Fill="WhiteSmoke" Margin="-5,0,-5,-5"/>
+                                <Button Name="btnPrint2" Content="              Print                " 
+                                        Width="auto" Click="btnPrint2_Click" Cursor="Hand"/>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+
+                <TabItem Header="Order Status">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.6*"/>
+                            <RowDefinition/>
+                            <RowDefinition Height="0.6*"/>
+                        </Grid.RowDefinitions>
+
+                        <Grid Grid.Row="0">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Rectangle Fill="CornflowerBlue" Height="12" Margin="50,0,-10,0"/>
+                                <Ellipse Width="30" Height="30" Fill="CornflowerBlue"/>
+                                <Rectangle Name="LineProgress0" Fill="WhiteSmoke" Height="4" Margin="45.5,0,0,0"/>
+                                <Ellipse Name="CircleProgress0" Width="20" Height="20" Fill="ForestGreen"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Rectangle Fill="CornflowerBlue" Height="12" Margin="0,0,-10,0"/>
+                                <Ellipse Width="30" Height="30" Fill="CornflowerBlue"/>
+                                <Rectangle Name="LineProgress1L" Fill="WhiteSmoke" Height="4" Margin="-10,0,45.5,0"/>
+                                <Rectangle Name="LineProgress1R" Fill="WhiteSmoke" Height="4" Margin="45.5,0,0,0"/>
+                                <Ellipse Name="CircleProgress1" Width="20" Height="20" Fill="WhiteSmoke"/>
+                            </Grid>
+
+                            <Grid Grid.Column="2">
+                                <Rectangle Fill="CornflowerBlue" Height="12" Margin="0,0,-10,0"/>
+                                <Ellipse Width="30" Height="30" Fill="CornflowerBlue"/>
+                                <Rectangle Name="LineProgress2L" Fill="WhiteSmoke" Height="4" Margin="-10,0,50,0"/>
+                                <Rectangle Name="LineProgress2R" Fill="WhiteSmoke" Height="4" Margin="50,0,0,0"/>
+                                <Ellipse Name="CircleProgress2" Width="20" Height="20" Fill="WhiteSmoke"/>
+                            </Grid>
+
+                            <Grid Grid.Column="3">
+                                <Rectangle Fill="CornflowerBlue" Height="12" Margin="0,0,-10,0"/>
+                                <Ellipse Width="30" Height="30" Fill="CornflowerBlue"/>
+                                <Rectangle Name="LineProgress3L" Fill="WhiteSmoke" Height="4" Margin="-10,0,50,0"/>
+                                <Rectangle Name="LineProgress3R" Fill="WhiteSmoke" Height="4" Margin="50,0,0,0"/>
+                                <Ellipse Name="CircleProgress3" Width="20" Height="20" Fill="WhiteSmoke"/>
+                            </Grid>
+
+                            <Grid Grid.Column="4">
+                                <Rectangle Fill="CornflowerBlue" Height="12" Margin="0,0,55.5,0"/>
+                                <Ellipse Width="30" Height="30" Fill="CornflowerBlue"/>
+                                <Rectangle Name="LineProgress4" Fill="WhiteSmoke" Height="4" Margin="-10,0,50,0"/>
+                                <Ellipse Name="CircleProgress4" Width="20" Height="20" Fill="WhiteSmoke"/>
+                            </Grid>
+                        </Grid>
+                        
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0" Margin="10,10,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="Order current state:" FontSize="16"/>
+                                    <ComboBox Name="cbStage" Margin="0,3,10,0" SelectionChanged="cbStage_SelectionChanged" 
+                                              Foreground="Black" VerticalAlignment="Top" Width="auto" IsEditable="False">
+                                        <ComboBoxItem Content="Checkout complete" Visibility="Collapsed"/>
+                                        <ComboBoxItem Content="Admin approved"/>
+                                        <ComboBoxItem Content="Ready for deliver"/>
+                                        <ComboBoxItem Content="Delivering"/>
+                                        <ComboBoxItem Content="Order complete"/>
+                                    </ComboBox>
+                                    <TextBlock Text="Deliver method:" FontSize="16" Margin="0,5,0,0"/>
+                                    <ComboBox Name="cbMethod" Margin="0,3,10,0" SelectionChanged="cbMethod_SelectionChanged" 
+                                              Foreground="Black" VerticalAlignment="Top" Width="auto" IsEditable="False"
+                                              IsEnabled="False">
+                                        <ComboBoxItem Name="Land" Content="Inland"/>
+                                        <ComboBoxItem Name="Sea" Content="Oversea"/>
+                                        <ComboBoxItem Name="Air" Content="Airborne"/>
+                                        <ComboBoxItem Name="Space" Content="OuterSpace"/>
+                                        <ComboBoxItem Content="Order cancel" Visibility="Collapsed"/>
+                                    </ComboBox>
+                                </StackPanel>
+                                <ComboBox Name="cbHidden" Width="200" Height="25" Margin="0,0,10,38"
+                                          IsEnabled="False" Foreground="Black" IsEditable="False"
+                                          Visibility="Collapsed">
+                                    <ComboBoxItem Content="Order cancel"/>
+                                </ComboBox>
+                            </Grid>
+
+                            <Grid Grid.Column="1" Margin="10,10,0,0">
+                                <StackPanel>
+                                    <TextBlock Text="Delivery partner:" FontSize="16"/>
+                                    <ComboBox Name="cbPartner" Margin="0,3,10,0" SelectionChanged="cbPartner_SelectionChanged"
+                                              Foreground="Black" VerticalAlignment="Top" Width="auto" IsEditable="False"
+                                              IsEnabled="False">
+                                        <ComboBoxItem Content="Default"/>
+                                        <ComboBoxItem Content="Faster"/>
+                                        <ComboBoxItem Content="Express"/>
+                                        <ComboBoxItem Content="RightAtYourDoorStep"/>
+                                        <ComboBoxItem Content="LookBehindYou"/>
+                                        <ComboBoxItem Content="Order cancel" Visibility="Collapsed"/>
+                                    </ComboBox>
+                                    <TextBlock Text="Vehicle:" FontSize="16" Margin="0,5,0,0"/>
+                                    <ComboBox Name="cbVehicled" Margin="0,3,10,0" SelectionChanged="cbVehicled_SelectionChanged"
+                                              Foreground="Black" VerticalAlignment="Top" Width="auto" IsEditable="False"
+                                              IsEnabled="False">
+                                        <ComboBoxItem Name="L1" Content="Bicycle"/>
+                                        <ComboBoxItem Name="L2" Content="Motorbike"/>
+                                        <ComboBoxItem Name="L3" Content="Car"/>
+                                        <ComboBoxItem Name="L4" Content="Truck"/>
+                                        <ComboBoxItem Name="L5" Content="Container"/>
+                                        <ComboBoxItem Name="O1" Content="Ferry"/>
+                                        <ComboBoxItem Name="O2" Content="Boat"/>
+                                        <ComboBoxItem Name="A1" Content="Helicopter"/>
+                                        <ComboBoxItem Name="A2" Content="Plane"/>
+                                        <ComboBoxItem Name="S1" Content="Space shutter"/>
+                                        <ComboBoxItem Name="S2" Content="Rocket"/>
+                                        <ComboBoxItem Content="Order cancel" Visibility="Collapsed"/>
+                                    </ComboBox>
+                                </StackPanel>
+                            </Grid>
+                        </Grid>
+                        
+                        <Grid Grid.Row="2">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+
+                            <Grid Grid.Column="0">
+                                <Button Name="btnPrint3" Content="Print" VerticalAlignment="Bottom"
+                                        HorizontalAlignment="Left" Margin="10,0,0,5" Cursor="Hand"
+                                        Click="btnPrint3_Click"/>
+                            </Grid>
+
+                            <Grid Grid.Column="1">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition/>
+                                    <RowDefinition/>
+                                </Grid.RowDefinitions>
+                                
+                                <Grid Grid.Row="0">
+                                    <Button Name="btnRevert" Content="           Cancel change           "
+                                            HorizontalAlignment="Center" Click="btnRevert_Click" Cursor="Hand"
+                                        Margin="10,0,10,0" VerticalAlignment="Center" Width="auto"/>
+                                </Grid>
+
+                                <Grid Grid.Row="1">
+                                    <Button Name="btnConfirm" Content="          Confirm change          "
+                                            HorizontalAlignment="Center" Click="btnConfirm_Click" Cursor="Hand"
+                                        Margin="10,0,10,0" VerticalAlignment="Center" Width="auto"/>
+                                </Grid>
+
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="10,0,10,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.6*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="0.8*"/>
+                </Grid.ColumnDefinitions>
+
+                <Grid Grid.Column="0">
+                    <TextBlock Name="txtCount" Text="Number of Products:" Foreground="WhiteSmoke"
+                               VerticalAlignment="Center" FontSize="16"/>
+                </Grid>
+
+                <Grid Grid.Column="1">
+                    <TextBlock Name="txtCountInput" Text="..." Foreground="WhiteSmoke"
+                               VerticalAlignment="Center" FontSize="16"/>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1">
+                <Button Name="btnBack" Content=" ╰┈┈ Back ┈┈➤ " HorizontalAlignment="Right" 
+                        Click="btnBack_Click" Width="auto" Cursor="Hand"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
