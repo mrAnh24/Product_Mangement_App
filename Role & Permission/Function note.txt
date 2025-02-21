@@ -1,0 +1,55 @@
+*UpdateData permission*
+
+- Normal CB selection:
++ Products (admin) (Lv4) (Lv3)
++ Customer (admin) (Lv4) (Lv3)
++ CustomerListFinal (storing final CustomerList) (admin) (Lv4) (Lv3)
+
+- Test CB selection:
++ AccountTest (admin)
++ AccountLinked (admin) (Lv4)
+
+Role: (admin) (Lv4) (Lv3) (Lv2)
+
+
+
+*InvoiceManagement Filter*
+
+- Customer:
++ AccountID. 		(0)
++ CustomerID. 		(1)
++ Username. 		(2)
++ InputName. 		(3)
+
+- Location:
++ Country. 		(4)
++ City. 		(5)
++ Region. 		(6)
++ Address. 		(7)
+
+- Other:
++ Postal Code. 		(8)
++ Payment method. 	(9)
++ Coupon code. 		(10)
++ Payment status. 	(11)
++ Date. (x)
+
+
+*Customer Checkout Process*
+
+- Customer checkout complete. 	(Stage 0)
+- Admin/Lv4/Lv3 approved.	(Stage 1)
+- Tranfer for deliver.		(Stage 2)
+- Delivering.			(Stage 3)
+- Complete.			(Stage 4)
+
+
+* {AccountOrder/Invoice} information modified linked table*
+
+- Cancel Order. (Customer + CustomerOrder [PaymentStatus])
+- Update information:
++ Customer:		[InputName, Title, Gender, Company, Address, City,
+			 Region, PostalCode, Country, Phone, Fax, PaymentMethod,
+			 PaymentStatus]
++ CustomerOrder:	[Name, PaymentStatus]
++ CustomerListFinal:	[InputName]

@@ -1,0 +1,259 @@
+﻿<Window x:Class="DatabaseApp.Checkout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DatabaseApp"
+        xmlns:userControls="clr-namespace:DatabaseApp.View.UserControls"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="Checkout" Height="500" Width="500">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="60"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <userControls:MenuBar/>
+        </Grid>
+
+        <Grid Grid.Row="1" Background="SteelBlue" Margin="10,0,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="0.7*"/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Margin="10,0,0,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition Height="0.2*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.1*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0">
+                    <TextBlock Text="Checkout" Margin="10,0,0,0" VerticalAlignment="Center" FontSize="30" FontWeight="Black"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="5,0,5,5" Background="CornflowerBlue">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.4*"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <TextBlock Name="txtPayment" Text="Choose an payment method" HorizontalAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1" Margin="0,5,0,0">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border BorderThickness="1" BorderBrush="Black" Grid.Column="0">
+                            <Grid Name="payment1" Grid.Column="0" Background="Azure" Margin="0,0,-2,0">
+                                <Button Name="Epayment" Content="E-Wallet" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        Cursor="Hand" Background="Transparent" Foreground="Black" Width="auto"
+                                        FontSize="12" Click="Epayment_Click"/>
+                            </Grid>
+                        </Border>
+
+                        <Border BorderThickness="1" BorderBrush="Black" Grid.Column="1">
+                            <Grid Name="payment2" Grid.Column="1" Background="Azure">
+                                <Button Name="Bpayment" Content="Bank Account" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        Cursor="Hand" Background="Transparent" Foreground="Black" Width="auto"
+                                        FontSize="12" Click="Bpayment_Click"/>
+                            </Grid>
+                        </Border>
+
+                        <Border BorderThickness="1" BorderBrush="Black" Grid.Column="2">
+                            <Grid Name="payment3" Grid.Column="2" Background="Azure" Margin="-1,0,0,0">
+                                <Button Name="Cpayment" Content="COD" VerticalAlignment="Center" HorizontalAlignment="Center"
+                                        Cursor="Hand" Background="Transparent" Foreground="Black" Width="auto"
+                                        FontSize="12" Click="Cpayment_Click"/>
+                            </Grid>
+                        </Border>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Background="WhiteSmoke"  Margin="5,0,5,10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+
+                    <Grid Grid.Column="0" Margin="10">
+                        <StackPanel>
+                            <TextBlock Text="Name (*)"/>
+                            <TextBox Name="tbName" Height="20"/>
+                            <TextBlock Text="Gender"/>
+                            <ComboBox Name="cbGender" Width="auto" Height="20" IsEditable="False" 
+                                      Foreground="Black" SelectionChanged="cbGender_SelectionChanged">
+                                <ComboBoxItem Content="Male"/>
+                                <ComboBoxItem  Content="Female"/>
+                                <ComboBoxItem  Content="Unknown"/>
+                            </ComboBox>
+                            <TextBlock Text="Company"/>
+                            <TextBox Name="tbCompany" Height="20"/>
+                            <TextBlock Text="City (*)"/>
+                            <TextBox Name="tbCity" Height="20"/>
+                            <TextBlock Text="Postal Code (*)"/>
+                            <TextBox Name="tbPostalCode" PreviewTextInput="tbPostalCode_PreviewTextInput"
+                                      Height="20"/>
+                            <TextBlock Text="Phone numbers (*)"/>
+                            <TextBox Name="tbPhone" PreviewTextInput="tbPhone_PreviewTextInput"
+                                      Height="20"/>
+                        </StackPanel>
+                        <TextBlock Text="Product expected to arrived within a week" VerticalAlignment="Bottom"
+                                   Margin="0,0,-120,0" TextDecorations="Underline"/>
+                    </Grid>
+
+                    <Grid Grid.Column="1" Margin="10">
+                        <StackPanel>
+                            <TextBlock Text="Job title"/>
+                            <TextBox Name="tbTitle" Height="20"/>
+                            <TextBlock Text="Address (*)"/>
+                            <TextBox Name="tbAddress" Height="20"/>
+                            <TextBlock Text="Region (*)"/>
+                            <ComboBox Name="tbRegion" Height="20" Width="auto" Foreground="Black" IsEditable="False"
+                                      SelectionChanged="tbRegion_SelectionChanged">
+                                <ComboBoxItem Content="North"/>
+                                <ComboBoxItem Content="East"/>
+                                <ComboBoxItem Content="Middle"/>
+                                <ComboBoxItem Content="West"/>
+                                <ComboBoxItem Content="South"/>
+                            </ComboBox>
+                            <TextBlock Text="Country (*)"/>
+                            <TextBox Name="tbCountry" Height="20"/>
+                            <TextBlock Text="Fax numbers"/>
+                            <TextBox Name="tbFax" Height="20" 
+                                     PreviewTextInput="tbFax_PreviewTextInput"/>
+                        </StackPanel>
+
+                        <Button Name="btnFill" Content="🎲" VerticalAlignment="Bottom" Cursor="Hand"
+                                HorizontalAlignment="Right" Click="btnFill_Click" Margin="0,0,0,30"
+                                Width="30" Background="Blue"/>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="3" Margin="5,-10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0">
+                        <TextBlock VerticalAlignment="Center">
+                            <Hyperlink Foreground="WhiteSmoke"  Name="HlBack" Click="HlBack_Click" Cursor="Hand">
+                                ↩ Back to Products list
+                            </Hyperlink>
+                        </TextBlock>
+                    </Grid>
+
+                    <Grid Grid.Column="1">
+                        <Button Name="btnSubmit" Content="Checkout" HorizontalAlignment="Right" Cursor="Hand" 
+                                Click="btnSubmit_Click"  Margin="5"/>
+                    </Grid>
+                </Grid>
+            </Grid>
+
+            <Grid Grid.Column="1" Margin="0,0,10,0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.3*"/>
+                    <RowDefinition/>
+                    <RowDefinition Height="0.6*"/>
+                </Grid.RowDefinitions>
+
+                <Grid Grid.Row="0" Margin="0,5,5,10">
+                    <Button Name="btnRefresh" Content="🔄" Width="auto" Height="auto" HorizontalAlignment="Right"
+                            Background="Transparent" Cursor="Hand" Click="btnRefresh_Click"  FontSize="30"/>
+                </Grid>
+
+                <Grid Grid.Row="1" Margin="5,-10,5,10" Background="WhiteSmoke">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.6*"/>
+                        <RowDefinition/>
+                        <RowDefinition Height="0.7*"/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0">
+                        <Label Content="Invoice" VerticalAlignment="Center" HorizontalAlignment="Center" 
+                               FontSize="24" FontStyle="Italic"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Grid Grid.Column="0">
+                            <StackPanel Margin="10,0,10,0">
+                                <TextBlock Text="Username: "/>
+                                <TextBlock Text="Products count: "/>
+                                <TextBlock Name="LbAmount1" Text="Totals : "/>
+                                <TextBlock Name="LbDiscountAmount" Text="Discount : "/>
+                                <TextBlock Name="LbAmount2" Text="Totals : "/>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <StackPanel Margin="0,0,0,0">
+                                <TextBlock Name="txtUser" Text="placeholder" Margin="0,0,0,0"/>
+                                <TextBlock Name="txtAmount" Text="0" Margin="0,0,0,0"/>
+                                <TextBlock Name="txtTotals" Text="0 $" Margin="0,0,0,0"/>
+                                <TextBlock Name="txtDiscountAmount" Text="0 $" Margin="0,0,0,0"/>
+                                <TextBlock Name="txtTotals2" Text="0 $" Margin="0,0,0,0"/>
+                            </StackPanel>
+                        </Grid>
+                        
+                    </Grid>
+
+                    <Grid Grid.Row="2" Margin="10,5,10,5">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition/>
+                            <ColumnDefinition Width="0.7*"/>
+                        </Grid.ColumnDefinitions>
+                        
+                        <Grid Grid.Column="0">
+                            <TextBlock Name="txtStatus" Text="Code status" VerticalAlignment="Bottom"
+                                       Margin="0,0,-60,0" Foreground="ForestGreen"/>
+                            <TextBox Name="tbCode" VerticalAlignment="Top" Height="24"/>
+                        </Grid>
+
+                        <Grid Grid.Column="1">
+                            <Button Name="btnCode" Content="Applied" Height="24" VerticalAlignment="Top"
+                                    Cursor="Hand" Click="btnCode_Click"/>
+                        </Grid>
+                    </Grid>
+                </Grid>
+
+                <Grid Grid.Row="2" Margin="5,0,5,6" Background="WhiteSmoke">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height='0.4*'/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <Grid Grid.Row="0" Background="CornflowerBlue">
+                        <Label Content="Coupon zone" HorizontalAlignment="Center" FontSize="18"
+                               VerticalAlignment="Center"/>
+                    </Grid>
+
+                    <Grid Grid.Row="1">
+                        <ScrollViewer VerticalScrollBarVisibility="Auto">
+                            <StackPanel Margin="10" Background="White">
+                                <TextBlock Name="txtcode1" Text="Code 1 (Buy 10 Product)"/>
+                                <TextBlock Name="txtcode2" Text="Code 2 (Buy 20 Product)"/>
+                                <TextBlock Name="txtcode3" Text="Code 3 (Buy 50 Product)"/>
+                                <TextBlock Name="txtcode4" Text="Code 4 (Buy 100 Product)"/>
+                                <TextBlock Name="txtcode5" Text="Code 5 (Buy 200 Product)"/>
+                                <TextBlock Name="txtcode6" Text="Code 6 (Buy 500 Product)"/>
+                            </StackPanel>
+                        </ScrollViewer>
+                    </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>

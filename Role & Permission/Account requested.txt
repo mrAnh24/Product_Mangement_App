@@ -1,0 +1,25 @@
+--------------------------//-- All category --//--------------------------
+
+// Data modified: (*RequestType : User, admin*)
+- Account created. (v) (User + admin)
+- CustomerInvoice data modified. (?) (no import)
+- Account data modified. (v)
+  + Account info. (v) (User + admin)
+  + Account linked info. (v) (User)
+- Product data modified. (v) (User + admin)
+
+
+// Product news: (*RequestType : none*)
+- New product added. (v)
+- Product status change. (v)
+  + Product available. (v)
+  + Product unavailable. (v)
+  + Product on sale. (v)
+- Delete product. (v)
+
+
+// Request:
+- Account upgrade. (v)
+- Account checked out. (v) (Enter stage 0)
+- New product (v) (Exception : admin + Lv4)
+

@@ -1,0 +1,63 @@
+﻿<UserControl x:Class="DatabaseApp.View.UserControls.MenuBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:DatabaseApp.View.UserControls"
+             mc:Ignorable="d"
+             d:DesignHeight="55" d:DesignWidth="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="30"/>
+        </Grid.RowDefinitions>
+        
+        <Menu>
+            <MenuItem Name="mFile" Header="File" FontSize="16">
+                <MenuItem Name="miHome" Header="Home" Click="miHome_Click"/>
+                <MenuItem Name="miProduct" Header="Product" Click="miProduct_Click"/>
+                <MenuItem Name="LogOut" Header="Log out" Click="LogOut_Click"/>
+            </MenuItem>
+
+            <MenuItem Name="mAccount" Header="Account" FontSize="16">
+                <MenuItem Name="miAccount" Header="My account" Click="miAccount_Click"/>
+                <MenuItem Name="miProductList" Header="My products list" Click="miProductList_Click"/>
+                <MenuItem Name="miAccountOrder" Header="My account order" Click="miAccountOrder_Click"/>
+                <MenuItem Name="miPermisson" Header="Permission" Click="miPermisson_Click"/>
+            </MenuItem>
+
+            <MenuItem Name="mEdit" Header="Edit" FontSize="16">
+                <MenuItem Name="miCSV" Header="Open .CSV File" Click="miCSV_Click"/>
+                <MenuItem Name="miUpdateProducts" Header="Update products" Click="miUpdateProducts_Click"/>
+                <MenuItem Name="miUpdateData" Header="Update data" Click="miUpdateData_Click"/>
+                <MenuItem Name="ExportData" Header="Export data" Click="ExportData_Click"/>
+            </MenuItem>
+
+            <MenuItem Name="mAdmin" Header="Admin" FontSize="16">
+                <MenuItem Name="miInvoiceManagement" Header="Invoice Management" Click="miHomeAdmin_Click"/>
+                <MenuItem Name="miOrderManagement" Header="Order Management" Click="miOrderManagement_Click"/>
+                <MenuItem Name="miRequest" Header="Account requests" Click="miRequest_Click"/>
+                <MenuItem Name="miDatabase" Header="Account management" Click="miDatabase_Click"/>
+                <MenuItem Name="miAdminProduct" Header="Product management" Click="miAdminProduct_Click"/>
+            </MenuItem>
+        </Menu>
+        <Grid Grid.Row="1">
+            <TextBlock Name="txtAccname" Text="Account name" FontSize="24" HorizontalAlignment="Left" 
+                       FontWeight="Bold" VerticalAlignment="Center" Margin="10,0,0,0"/>
+            <Button Name="btnChat" Content="💬" Foreground="CornflowerBlue" HorizontalAlignment="Right"
+                    Background="Transparent" Height="auto" Margin="0,0,12,0" FontSize="20"
+                    MouseEnter="btnChat_MouseEnter"  MouseLeave="btnChat_MouseLeave"  Width="auto"
+                    Cursor="Hand" Click="btnChat_Click"/>
+            <Ellipse Name="ChatBubble" HorizontalAlignment="Right" Width="13" Height="13"
+                     Fill="red" Margin="0,0,8,8" Visibility="Collapsed"/>
+            <Button Name="btnBell" Content="🔔" Foreground="CornflowerBlue"  HorizontalAlignment="Right"
+                    Background="Transparent" Height="auto" Margin="0,0,50,0" FontSize="20" Width="auto"
+                    MouseEnter="Button_MouseEnter" MouseLeave="Button_MouseLeave"
+                    Cursor="Hand" Click="Button_Click"/>
+            <Ellipse Name="NotifyBubble" HorizontalAlignment="Right" Width="13" Height="13"
+                     Fill="red" Margin="0,0,48,8" Visibility="Collapsed"/>
+            <TextBlock Name="NotifyText" HorizontalAlignment="Right" Background="FloralWhite" 
+                       VerticalAlignment="Center" Margin="0,5,75,5"/>
+        </Grid>
+    </Grid>
+</UserControl>

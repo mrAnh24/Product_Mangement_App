@@ -1,0 +1,42 @@
+// Account modified:
+- Account information modified. (v)
+- Account name changed. (v)
+- Account linked modified. (v)
+- Account password changed. (v)
+
+// Checkout status:
+- Checkout complete. (v)
+- Checkout cancel. (v)
+- Receipt print. (v)
+- Order {ID} payment status change. (v)
+- Order {ID} information modified. (v)
+- Order {ID} customer informations printed. (v)
+- Order {ID} products receipt printed. (v)
+- Order {ID} canceled. (v)
+- {Name} PreOrder. (v)
+- {Name} PreOrder canceled. (v)
+
+// Data modified: (No delete)
+- Account upload a CSV file. (v)
+- CustomerInvoice data modified. (no import) (v)
+- Account data modified. (v)
+- Product data modified. (v)
+
+// Products modified:
+- Add a new product. (v)
+- Update a product. (v)
+- Delete a product. (v)
+
+// Admin action:
+- Account created. (v)
+- Account information modified. (v)
+- Account deleted. (v)
+- {Name} request approved. (?)
+
+// Notification:
+- Account created. (v)
+- Account login. (v)
+- Account logout. (v)
+- Account delete. (v)
+- Guest visit. (v)
+- {Blank} request sent. (?)

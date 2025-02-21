@@ -1,0 +1,236 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|d:\\tda_intern\\projects\\databaseapp\\product_mangement_app-master\\databaseapp\\checkout.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\checkout.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\ordermanagementdetail.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\ordermanagementdetail.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\accountrequests.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\accountrequests.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|d:\\tda_intern\\projects\\databaseapp\\product_mangement_app-master\\databaseapp\\ordermanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\ordermanagement.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\ordermanagement.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\ordermanagement.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\updateproductadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\updateproductadmin.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\app.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\accountorder.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\accountorder.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\orderstatus.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\orderstatus.xaml.cs||{8B382828-6202-11D1-8870-0000F87579D2}|"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\checkout.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\checkout.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\accountorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\accountorder.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\databaseapp\\view\\usercontrols\\menubar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9383409E-9221-41D3-94FB-A5AEFD8980A3}|DatabaseApp\\DatabaseApp.csproj|solutionrelative:databaseapp\\view\\usercontrols\\menubar.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 1,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedHeight": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "App.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\App.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\App.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\App.xaml",
+              "RelativeToolTip": "DatabaseApp\\App.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2024-11-19T01:05:47.926Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "MenuBar.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\View\\UserControls\\MenuBar.xaml.cs",
+              "ViewState": "AgIAAA4AAAAAAAAAAAAAADcBAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-17T02:37:57.508Z",
+              "IsPinned": true
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "AccountRequests.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\AccountRequests.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\AccountRequests.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\AccountRequests.xaml",
+              "RelativeToolTip": "DatabaseApp\\AccountRequests.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-21T09:41:09.899Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OrderManagementDetail.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderManagementDetail.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\OrderManagementDetail.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderManagementDetail.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\OrderManagementDetail.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T08:27:29.628Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Checkout.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\Checkout.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\Checkout.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\Checkout.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\Checkout.xaml.cs",
+              "ViewState": "AgIAAGsCAAAAAAAAAAAAAJgCAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T08:12:49.877Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "OrderManagement.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderManagement.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\OrderManagement.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderManagement.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\OrderManagement.xaml.cs",
+              "ViewState": "AgIAAEMAAAAAAAAAAAAgwF0AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T07:05:48.448Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "AccountOrder.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\AccountOrder.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\AccountOrder.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\AccountOrder.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\AccountOrder.xaml.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAHUBAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T07:11:58.254Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "OrderStatus.xaml.cs",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderStatus.xaml.cs",
+              "RelativeDocumentMoniker": "DatabaseApp\\OrderStatus.xaml.cs",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderStatus.xaml.cs",
+              "RelativeToolTip": "DatabaseApp\\OrderStatus.xaml.cs",
+              "ViewState": "AgIAADsAAAAAAAAAAAAAwFYAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-02-21T07:35:35.72Z"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "FloatingWindowState": {
+        "Id": "e63ba14b-0645-4183-ba8f-834f10cc5b63",
+        "Display": 0,
+        "X": 997,
+        "Y": 9,
+        "Width": 926,
+        "Height": 767,
+        "WindowState": 0
+      },
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 1,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "UpdateProductAdmin.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\UpdateProductAdmin.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\UpdateProductAdmin.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\UpdateProductAdmin.xaml",
+              "RelativeToolTip": "DatabaseApp\\UpdateProductAdmin.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-03T08:09:51.496Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "OrderManagement.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderManagement.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\OrderManagement.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\OrderManagement.xaml",
+              "RelativeToolTip": "DatabaseApp\\OrderManagement.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-21T07:05:56.375Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AccountOrder.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\AccountOrder.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\AccountOrder.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\AccountOrder.xaml",
+              "RelativeToolTip": "DatabaseApp\\AccountOrder.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-21T07:12:01.658Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Checkout.xaml",
+              "DocumentMoniker": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\Checkout.xaml",
+              "RelativeDocumentMoniker": "DatabaseApp\\Checkout.xaml",
+              "ToolTip": "D:\\TDA_intern\\Projects\\DatabaseApp\\Product_Mangement_App-master\\DatabaseApp\\Checkout.xaml",
+              "RelativeToolTip": "DatabaseApp\\Checkout.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-02-21T08:10:50.344Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
